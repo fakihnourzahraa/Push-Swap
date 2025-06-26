@@ -3,50 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   stack_creation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 21:00:38 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/21 21:00:38 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
+/*   Updated: 2025/06/22 19:52:31 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *create_stack()
+t_stack	*create_stack(void)
 {
-    t_stack *stack = malloc (sizeof(t_stack));
-    if(!stack)
-        return (NULL);
-    stack->top = NULL;
-    stack->size = 0;
-    return (stack);
+	t_stack	*stack;
+
+	stack = malloc (sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->top = NULL;
+	stack->size = 0;
+	return (stack);
 }
-void    push_stack(t_stack *s, int val)
+
+void	push_stack(t_stack *s, int val)
 {
-	t_node *new = malloc(sizeof(t_node));
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
 	if (!new)
-	    return ;
+		return ;
 	new->val = val;
-    new->index = 0;
-    new->push_cost = 0;
-    new->above_median = false;
-    new->cheapest = false;
+	new->index = 0;
+	new->push_cost = 0;
+	new->above_median = false;
+	new->cheapest = false;
 	new->target_node = NULL;
 	new->next = s->top;
 	new->prev = NULL;
 	if (s->top)
 		s->top->prev = new;
-    
-    s->top = new;
-    s->size++;
+	s->top = new;
+	s->size++;
 }
+
 int	pop_stack(t_stack *s)
 {
 	int		val;
 	t_node	*r;
+
 	if (s->size == 0)
 		return (0);
-    r = s->top;
+	r = s->top;
 	val = r->val;
 	s->top = s->top->next;
 	if (s->top)
@@ -55,3 +61,5 @@ int	pop_stack(t_stack *s)
 	s->size--;
 	return (val);
 }
+
+

@@ -90,12 +90,12 @@ static char	**help(char *s, int i, char c, char **result)
 	return (result);
 }
 
-char	**ft_split(const char *str, char c)
+char	**ft_split(char *str, char c)
 {
 	char	**result;
 	char	*s;
 
-	s = (char *)str;
+	s = str;
 	result = (char **)malloc(sizeof(char *) * (wordcount(s, c) + 1));
 	if (!result)
 		return (NULL);
