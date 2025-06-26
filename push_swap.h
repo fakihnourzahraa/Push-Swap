@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/25 18:52:32 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/26 16:54:09 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,23 @@ typedef struct s_stack
 }	t_stack;
 
 //errors
+int			error_message(int r);
+
 //stack
 t_stack		*create_stack(void);
-void		push_stack(t_stack *s, int val);
+int			push_stack(t_stack *s, int val);
 int			pop_stack(t_stack *s);
+int			convert_to_stack(char **input, t_stack *s);
+void		free_stack(t_stack *s);
 
 //utils
 //commands
 //algo
+int			sorting(t_stack *a);
 //libft
 static int	iswhite(char *nptr);
 int			ft_isdigit(int c);
 int			**ft_split(char *str, char c);
+int			ft_strlen(char *str);
 
 #endif

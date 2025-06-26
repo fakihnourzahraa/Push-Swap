@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:59:34 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/23 19:50:05 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/26 15:17:59 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,7 @@ static int	findbase(char *nptr)
 	return (ans);
 }
 
-static int	iswhite(char *nptr)
-{
-	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
-		return (1);
-	return (0);
-}
-
-int	ft_atol(char *nptr)
+int	ft_atoi(char *nptr)
 {
 	long		ans;
 	int			s;

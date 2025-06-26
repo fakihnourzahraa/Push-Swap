@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/25 18:48:09 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/26 15:28:43 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	iswhite(char *nptr)
+{
+	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		return (1);
+	return (0);
+}
+
+int	error_message(int r)
+{
+	write(1, "Error\n", 6);
+	return (r);
+}
 
 int	ft_isdigit(int c)
 {
@@ -19,4 +32,16 @@ int	ft_isdigit(int c)
 		return (1);
 	}
 	return (0);
+}
+
+int	ft_strlen(char *str)
+{
+	int	a;
+
+	a = 0;
+	while (str[a] != '\0')
+	{
+		a++;
+	}
+	return (a);
 }
