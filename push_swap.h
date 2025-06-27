@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/26 16:54:09 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/27 17:51:24 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,23 @@ int			convert_to_stack(char **input, t_stack *s);
 void		free_stack(t_stack *s);
 
 //utils
+
 //commands
+
 //algo
 int			sorting(t_stack *a);
+
 //libft
 static int	iswhite(char *nptr);
 int			ft_isdigit(int c);
 int			**ft_split(char *str, char c);
 int			ft_strlen(char *str);
+
+//operations
+void		pa(t_stack *a, t_stack *b);
+void		pb(t_stack *a, t_stack *b);
+void		rrb(t_stack *b);
+void		rra(t_stack *b);
+void		rrr(t_stack *a, t_stack *b);
 
 #endif

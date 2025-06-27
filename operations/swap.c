@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_operations.c                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:17:43 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/26 19:11:00 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/27 17:42:33 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	swap(t_stack *a)
 {
 	int	*f;
 
@@ -23,36 +23,23 @@ void	sa(t_stack *a)
 	a->top->next->val = f;
 }
 
+void	sa(t_stack *a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
 void	sb(t_stack *b)
 {
-	int	*f;
-
-	if (b->size < 2)
-		return ;
-	f = b->top->val;
-	b->top->val = b->top->next->val;
-	b->top->next->val = f;
+	swap(b);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_node *a, t_stack *b)
 {
-	sa(a);
-	sa(b);
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }
 
-void	pa(t_stack *a, t_stack *b)
-{
-	if (b->top)
-		return ;
-	push_stack(a, b->top->val);
-	b->top->val = NULL;
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	if (a->top)
-		return ;
-	push_stack(b, a->top->val);
-	a->top->val = NULL;
-}
 

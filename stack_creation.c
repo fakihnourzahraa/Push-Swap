@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/26 15:53:35 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/27 18:20:23 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	push_stack(t_stack *s, int val)
 	new->cheapest = false;
 	new->target_node = NULL;
 	new->next = s->top;
-	new->prev = NULL;
+	new->prev = NULL;			
 	if (s->top)
 		s->top->prev = new;
 	s->top = new;

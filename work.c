@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/26 18:08:14 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/27 18:21:37 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,19 @@ int	is_sorted(t_stack *a)
 
 int	sort(t_stack *a)
 {
+	while (a)
+	{
+
+	}
 
 }
 
 int	sorting(t_stack *a)
 {
 	t_stack	*b;
+
+	//if sorted, return;
+	//if l 
 
 }
 	// Check if sorted
