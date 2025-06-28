@@ -1,57 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*   turk.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/28 14:38:38 by nfakih           ###   ########.fr       */
+/*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
+/*   Updated: 2025/06/28 18:33:22 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	iswhite(char *nptr)
+void	push_descending(t_stack *a, t_stack *b)
 {
-	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
-		return (1);
-	return (0);
+}
+//refresh info a and , prep move a to b
+
+void	push_ascending(t_stack *a, t_stack *b)
+{
+}
+//refresh info b  prep for push and pa
+
+// 	-> sort last 2 elements
+	// 	-> while (b) push to a and rotate as needed
+	// 	-> rotate till minimum is at top
+
+
+
+void	move_a_to_b(t_node **a, t_node **b)
+{
 }
 
-int	error_message(int r)
+void	prep_for_push(t_stack *a)
 {
-	write(1, "Error\n", 6);
-	return (r);
 }
+//Parameter for stack name, combine them both here
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	ft_strlen(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
-}
-
-int	arr_len(char **input)
-{
-	int	i;
-
-	i = 0;
-	while (input[i])
-		i++;
-	return (i);
-}

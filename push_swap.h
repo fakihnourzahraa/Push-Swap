@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/27 17:51:24 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/28 18:59:42 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 # include <stdint.h>
 # include <stddef.h>
 # include <unistd.h>
-# include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_stack_node
 {
 	int					val;
 	int					index;
 	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
+	 					above_median;
+	int					cheapest;
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
@@ -38,28 +38,28 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-//errors
-int			error_message(int r);
-
 //stack
 t_stack		*create_stack(void);
 int			push_stack(t_stack *s, int val);
 int			pop_stack(t_stack *s);
 int			convert_to_stack(char **input, t_stack *s);
 void		free_stack(t_stack *s);
-
-//utils
-
-//commands
+int			stack_size(t_node *s);
 
 //algo
-int			sorting(t_stack *a);
+void		sorting(t_stack *a);
+int			is_sorted(t_stack *a);
+t_node		*find_max(t_stack *s);
+t_node		*find_min(t_stack *s);
 
-//libft
+//helper
 static int	iswhite(char *nptr);
 int			ft_isdigit(int c);
 int			**ft_split(char *str, char c);
 int			ft_strlen(char *str);
+int			ft_atoi(char *nptr);
+int			arr_len(char **input);
+int			error_message(int r);
 
 //operations
 void		pa(t_stack *a, t_stack *b);
@@ -67,5 +67,8 @@ void		pb(t_stack *a, t_stack *b);
 void		rrb(t_stack *b);
 void		rra(t_stack *b);
 void		rrr(t_stack *a, t_stack *b);
+void		rb(t_stack *b);
+void		ra(t_stack *b);
+void		rr(t_stack *a, t_stack *b);
 
 #endif

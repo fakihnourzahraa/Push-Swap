@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/27 18:20:23 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/28 15:57:34 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	push_stack(t_stack *s, int val)
 	new->val = val;
 	new->index = 0;
 	new->push_cost = 0;
-	new->above_median = false;
-	new->cheapest = false;
+	new->above_median = 0;
+	new->cheapest = 0;
 	new->target_node = NULL;
 	new->next = s->top;
-	new->prev = NULL;			
+	new->prev = NULL;
 	if (s->top)
 		s->top->prev = new;
 	s->top = new;
@@ -70,6 +70,19 @@ void	free_stack(t_stack *s)
 		pop_stack(s);
 	}
 	free(s);
+}
+
+int	stack_size(t_node *s)
+{
+	int	i;
+
+	i = 0;
+	while (s)
+	{
+		s = s->next;
+		i++;
+	}
+	return (i);
 }
 
 
