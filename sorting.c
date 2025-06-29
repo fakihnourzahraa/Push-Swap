@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/28 18:28:29 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/29 19:40:56 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	sorting(t_stack *a)
 {
 	t_stack	*b;
 
+	b = NULL;
 	if (is_sorted(a))
 		return ;
 	if (a->size == 2)

@@ -6,22 +6,45 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/28 18:34:04 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/06/29 19:50:56 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	cost_analysis(t_stack *a, t_stack *b)
+void	cost_analysis_a(t_node *a, t_node *b)
 {
-
+	while (a)
+	{
+		a->push_cost = a->index;
+		if (!(a->above_median))
+			a->push_cost = stack_size(a) - (a->index);
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
+			a->push_cost += stack_size(b) - a->target_node->index;
+		a = a->next;
+	}
 }
 
-void	set_cheapest(t_stack *a)
+void	set_cheapest(t_node *a)
 {
+	long	val;
+	t_node	*node;
 
+	val = LONG_MAX;
+	while (a)
+	{
+		if (a->push_cost < val)
+		{
+			val = a->push_cost;
+			node = a;
+		}
+		a = a->next;
+	}
+	node->cheapest = 1;
 }
+
 void	find_index(t_stack *a)
 {
 	int		i;
@@ -71,13 +94,31 @@ void	set_target_a(t_node *a, t_node *b)
 		aa = aa->next;
 	}
 }
-// Long so it takes int min
 
-void	refresh_info_a(t_stack *a, t_stack *b)
+void	set_target_b(t_node *b, t_node *a)
 {
-	find_index(a);
-	find_index(b);
-	set_target_a(a, b);
-	cost_analysis(a, b);
-	set_cheapest(a);
+	t_node		*aa;
+	t_node		*bb;
+	t_node		*target;
+	long		best;
+
+	while (bb)
+	{
+		best = LONG_MAX;
+		while (aa)
+		{
+			if (aa->val < b->val && aa->val < best)
+			{
+				best = aa->val;
+				target = aa;
+			}
+			aa = aa->next;
+		}
+		if (best == LONG_MAX)
+			b->target_node = find_max(a);
+		else
+			bb->target_node = target;
+		bb = bb->next;
+	}
 }
+// Long so it ta kes int min

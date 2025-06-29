@@ -23,13 +23,13 @@ Main
 		-> while (b) push to a and rotate as needed
 		-> rotate till minimum is at top
 to do:
-	-> 
-
-
-
+	->fix arr length
+	->null inputs
+	->check dup fix
+	->make sure atoi handles int overflow or add to error checking(an extra function ig)
 
 ## 🔷 Write pseudo code
-```
+
 //Declare pointers to two data structures/linked lists, one for stack `a` and another for `b`
 	//Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
 
@@ -47,7 +47,7 @@ to do:
 	//Append the nodes to stack `a`
 
 //Check if stack `a` is sorted
-	//If not sorted, implement our sorting algorithm 
+	//If not sorted, implement our sorting algorithm
 		//Check for 2 numbers
 			//If so, simply swap the numbers
 		//Check for 3 numbers
