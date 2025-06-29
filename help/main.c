@@ -12,37 +12,44 @@
 
 #include "push_swap.h"
 
-int	process_input(int argc, char **argv, t_stack *s)
+t_stack	*process_input(int argc, char **argv)
 {
-	t_stack	*s;
 	char	**input;
+	int		i;
+	t_stack	*b;
 
 	if (argc < 2 || !argv[1][0])
-		return (0);
+		return (NULL);
 	if (argc == 2)
 	{
 		input = ft_split(argv[1], ' ');
 		if (!(input))
-			return (0);
+			return (NULL);
 	}
 	else
 		input = &argv[1];
-	if (!convert_to_stack(input, &s))
+	b = convert_to_stack(input);
+	if (argc == 2)
 	{
-		if (argc == 2)
-			free(input);
-		return (0);
+		i = 0;
+		while (input[i])
+			free(input[i++]);
+		free(input);
 	}
-	return (1);
+	if (b == NULL)
+		return (NULL);
+	return (b);
 }
+//does it need to split only based on spaces or all white chars
 //free input here, s so that we can use it as a parameter in sorting
 
 int	main(int argc, char **argv)
 {
-	int		f;
 	t_stack	*s;
 
-	if (!process_input(argc, argv, s))
-		error_message(0);
+	s = process_input(argc, argv);
+	if (!s)
+		return (error_message(0));
 	sorting(s);
+	return (0);
 }

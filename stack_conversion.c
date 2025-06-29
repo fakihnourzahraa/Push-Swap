@@ -39,7 +39,7 @@ int	check_errors(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (!(s[i] == '-' || s[i] != '+' || !iswhite(s[i])
+		if (!(s[i] == '-' || s[i] == '+' || iswhite(s[i])
 				|| (s[i] >= '0' && s[i] <= '9')))
 			return (0);
 		i++;
@@ -48,9 +48,10 @@ int	check_errors(char *s)
 }
 //checks for unwanted chars
 
-int	fill_stack(int *arr, t_stack *s)
+t_stack	*fill_stack(int *arr)
 {
 	int		i;
+	t_stack	*s;
 
 	i = 0;
 	s = create_stack();
@@ -61,22 +62,23 @@ int	fill_stack(int *arr, t_stack *s)
 		if (!push_stack(s, arr[i]))
 		{
 			free_stack(s);
-			return (0);
+			return (NULL);
 		}
 		i++;
 	}
-	return (1);
+	return (s);
 }
 //creates stack takes the arr and adds it to the stack
 
-int	convert_to_stack(char **input, t_stack *s)
+t_stack	*convert_to_stack(char **input)
 {
 	int		i;
 	int		*arr;
+	t_stack	 *s;
 
 	i = 0;
 	if (!check_errors(input))
-		return (error_message(0));
+		return (NULL);
 	arr = malloc(sizeof(int) * (arr_len(input) + 1));
 	while (input[i])
 	{
@@ -87,15 +89,13 @@ int	convert_to_stack(char **input, t_stack *s)
 	if (!check_dup(arr))
 	{
 		free(arr);
-		return (0);
+		return (NULL);
 	}
-	if (!fill_stack(arr, s))
-	{
-		free(arr);
-		return (0);
-	}
-	free (arr);
-	return (1);
+	s = fill_stack(arr);
+	free(arr);
+	if (!s)
+		return (NULL);
+	return (s);
 }
 //this is whats being called by the main
 //it converts the input to an int array, checks for errors
