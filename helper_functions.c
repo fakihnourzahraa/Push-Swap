@@ -1,20 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 18:34:29 by nfakih            #+#    #+#             */
-/*   Updated: 2025/05/26 13:29:38 by nfakih           ###   ########.fr       */
+/*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
+/*   Updated: 2025/07/05 15:58:51 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "push_swap.h"
+
+int	iswhite(char *nptr)
 {
-	if (c >= 32 && c <= 126)
+	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		return (1);
+	return (0);
+}
+
+int	error_message(int r)
+{
+	write(1, "Error\n", 6);
+	return (r);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
 	{
 		return (1);
 	}
 	return (0);
+}
+
+int	ft_strlen(char *str)
+{
+	int	a;
+
+	a = 0;
+	while (str[a] != '\0')
+	{
+		a++;
+	}
+	return (a);
+}
+
+int	arr_len(char **input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+		i++;
+	return (i);
 }

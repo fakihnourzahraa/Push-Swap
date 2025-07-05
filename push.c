@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 18:54:36 by nfakih            #+#    #+#             */
-/*   Updated: 2025/05/30 19:07:37 by nfakih           ###   ########.fr       */
+/*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
+/*   Updated: 2025/07/05 16:23:51 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "push_swap.h"
+
+void	push(t_stack *a, t_stack *b)
 {
-	if (c >= 'A' && c <= 'Z')
-	{
-		c = c + 32;
-	}
-	return (c);
+	if (b->top)
+		return ;
+	push_stack(a, b->top->val);
+	b->top->val = 0;
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	push(a, b);
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	push(b, a);
+	write(1, "pb\n", 3);
 }

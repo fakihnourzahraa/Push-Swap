@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/29 19:40:56 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:31:35 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	is_sorted(t_stack *a)
 {
-	int		a;
-	int		i;
 	t_node	*f;
 	t_node	*s;
 
@@ -34,14 +32,14 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-t_node	*find_max(t_stack *s)
+t_node	*find_max(t_node *s)
 {
 	t_node	*a;
 	t_node	*max;
 	long	m;
 
 	m = LONG_MIN;
-	a = s->top;
+	a = s;
 	while (a)
 	{
 		if (a->val > m)
@@ -54,15 +52,14 @@ t_node	*find_max(t_stack *s)
 	return (max);
 }
 
-
-t_node	*find_min(t_stack *s)
+t_node	*find_min(t_node *s)
 {
 	t_node	*a;
 	t_node	*min;
 	long	m;
 
 	m = LONG_MAX;
-	a = s->top;
+	a = s;
 	while (a)
 	{
 		if (a->val < m)
@@ -75,11 +72,11 @@ t_node	*find_min(t_stack *s)
 	return (min);
 }
 
-int	sort_three(t_stack *a)
+int	sort_three(t_node *a)
 {
 	t_node	*s;
 
-	s = a->top;
+	s = a;
 	if (s == find_max(a))
 		ra(a);
 	else if (s->next == find_max(a))

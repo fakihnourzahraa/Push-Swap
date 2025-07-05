@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/29 18:28:06 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:20:04 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ int			stack_size(t_node *s);
 //algo
 void		sorting(t_stack *a);
 int			is_sorted(t_stack *a);
-t_node		*find_max(t_stack *s);
-t_node		*find_min(t_stack *s);
+t_node		*find_max(t_node *s);
+t_node		*find_min(t_node *s);
+int			sort_three(t_stack *a);
 
 //helper
-static int	iswhite(char *nptr);
+int			iswhite(char *nptr);
 int			ft_isdigit(int c);
-int			**ft_split(char *str, char c);
+char		**ft_split(char *str, char c);
 int			ft_strlen(char *str);
 int			ft_atoi(char *nptr);
 int			arr_len(char **input);
@@ -70,13 +71,21 @@ void		rrr(t_stack *a, t_stack *b);
 void		rb(t_stack *b);
 void		ra(t_stack *b);
 void		rr(t_stack *a, t_stack *b);
+void		sa(t_stack *a);
+void		sb(t_stack *b);
+void		ss(t_node *a, t_stack *b);
 
 //sorting
 void		refresh_info_a(t_stack *a, t_stack *b);
+void		refresh_info_b(t_stack *a, t_stack *b);
 void		cost_analysis_a(t_node *a, t_node *b);
 void		set_cheapest(t_node *a);
 void		find_index(t_stack *a);
 void		set_target_a(t_node *a, t_node *b);
 void		set_target_b(t_node *b, t_node *a);
-
+void		push_descending(t_stack *a, t_stack *b);
+void		push_ascending(t_stack *a, t_stack *b);
+void		move_a_to_b(t_node **a, t_node **b);
+void		move_b_to_a(t_node **a, t_node **b);
+void		prep_for_push(t_stack *a, char n, t_node *top);
 #endif

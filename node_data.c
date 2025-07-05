@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/29 19:50:56 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:16:18 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	find_index(t_stack *a)
 
 	i = 0;
 	n = a->top;
-	m = stack_size(a) / 2;
+	m = stack_size(a->top) / 2;
 	while (n)
 	{
 		n->index = i;
@@ -115,10 +115,11 @@ void	set_target_b(t_node *b, t_node *a)
 			aa = aa->next;
 		}
 		if (best == LONG_MAX)
-			b->target_node = find_max(a);
+			b->target_node = find_min(a);
 		else
 			bb->target_node = target;
 		bb = bb->next;
 	}
 }
-// Long so it ta kes int min
+// Long so it takes int min
+//make sure set targets are right

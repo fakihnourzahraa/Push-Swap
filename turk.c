@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/29 18:25:55 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 15:59:17 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	push_descending(t_stack *a, t_stack *b)
 {
+	refresh_info_a(a, b);
+	move_a_to_b(a, b);
 }
 //refresh info a and , prep move a to b
 
 void	push_ascending(t_stack *a, t_stack *b)
 {
+	refresh_info_b(a, b);
+	move_b_to_a(a, b);
 }
 //refresh info b  prep for push and pa
 
