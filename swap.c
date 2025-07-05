@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:17:43 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/27 17:42:33 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:54:08 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_stack *a)
 {
-	int	*f;
+	int	f;
 
 	if (a->size < 2)
 		return ;
@@ -35,7 +35,7 @@ void	sb(t_stack *b)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_node *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);

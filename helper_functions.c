@@ -6,15 +6,15 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 15:58:51 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:50:14 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	iswhite(char *nptr)
+int	iswhite(char nptr)
 {
-	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+	if ((nptr >= 9 && nptr <= 13) || nptr == 32)
 		return (1);
 	return (0);
 }

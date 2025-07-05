@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 16:31:35 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:49:16 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ t_node	*find_min(t_node *s)
 	return (min);
 }
 
-int	sort_three(t_node *a)
+void	sort_three(t_stack *a)
 {
 	t_node	*s;
 
-	s = a;
-	if (s == find_max(a))
+	s = a->top;
+	if (s == find_max(a->top))
 		ra(a);
-	else if (s->next == find_max(a))
+	else if (s->next == find_max(a->top))
 		rra(a);
 	if (s->val > s->next->val)
 		sa(a);
@@ -109,8 +109,8 @@ void	sorting(t_stack *a)
 	sort_three(a);
 	while (b->size)
 	{
-		push_ascneding(a, b);
+		push_ascending(a, b);
 	}
-	sort_last(a);
+	//sort_last(a);
 }
 //this is whats called by the main

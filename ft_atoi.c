@@ -6,11 +6,18 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:59:34 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/29 16:29:36 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/05 16:52:51 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	iswhite_(char *nptr)
+{
+	if ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		return (1);
+	return (0);
+}
 
 static int	findbase(char *nptr)
 {
@@ -40,7 +47,7 @@ int	ft_atoi(char *nptr)
 	s = 1;
 	ans = 0;
 	n = nptr;
-	while (iswhite(n))
+	while (iswhite_(n))
 		n++;
 	if (*n == '-' || *n == '+')
 	{
