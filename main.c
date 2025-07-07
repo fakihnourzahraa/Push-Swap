@@ -29,6 +29,9 @@ t_stack	*process_input(int argc, char **argv)
 	else
 		input = &argv[1];
 	b = convert_to_stack(input);
+	// printf("%s", input[0]);
+	// printf("%s", input[1]);
+	// printf("%s", input[2]);
 	if (argc == 2)
 	{
 		i = 0;
@@ -36,10 +39,9 @@ t_stack	*process_input(int argc, char **argv)
 			free(input[i++]);
 		free(input);
 	}
-	if (b == NULL)
-		return (NULL);
 	return (b);
 }
+//to string isnt working
 //does it need to split only based on spaces or all white chars
 //free input here, s so that we can use it as a parameter in sorting
 

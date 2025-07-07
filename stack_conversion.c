@@ -41,10 +41,11 @@ int	check_errors(char **s)
 	while (s[i])
 	{
 		j = 0;
+		if (s[i][j] == '-' || s[i][j] == '+')
+			j++;
 		while (s[i][j])
 		{
-			if (!(s[i][j] == '-' || s[i][j] == '+' || iswhite(s[i][j])
-					|| (s[i][j] >= '0' && s[i][j] <= '9')))
+			if (!(s[i][j] >= '0' && s[i][j] <= '9'))
 				return (0);
 			j++;
 		}
@@ -54,7 +55,7 @@ int	check_errors(char **s)
 }
 //checks for unwanted chars
 
-t_stack	*fill_stack(int *arr)
+t_stack	*fill_stack(int *arr, int len)
 {
 	int		i;
 	t_stack	*s;
@@ -63,7 +64,7 @@ t_stack	*fill_stack(int *arr)
 	s = create_stack();
 	if (s == NULL)
 		return (NULL);
-	while (arr[i])
+	while (i < len)
 	{
 		if (!push_stack(s, arr[i]))
 		{
@@ -86,7 +87,9 @@ t_stack	*convert_to_stack(char **input)
 	s = NULL;
 	if (!check_errors(input))
 		return (NULL);
-	arr = malloc(sizeof(int) * (arr_len(input) + 1));
+	arr = malloc(sizeof(int) * arr_len(input));
+	if (!arr)
+		return (NULL);
 	while (input[i])
 	{
 		arr[i] = ft_atoi(input[i]);
@@ -97,7 +100,7 @@ t_stack	*convert_to_stack(char **input)
 		free(arr);
 		return (NULL);
 	}
-	s = fill_stack(arr);
+	s = fill_stack(arr, i);
 	free(arr);
 	if (!s)
 		return (NULL);

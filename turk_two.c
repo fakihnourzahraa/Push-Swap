@@ -19,6 +19,7 @@ void	refresh_info_a(t_stack *a, t_stack *b)
 	set_target_a(a->top, b->top);
 	cost_analysis_a(a->top, b->top);
 	set_cheapest(a->top);
+	
 }
 
 void	refresh_info_b(t_stack *a, t_stack *b)

@@ -101,12 +101,18 @@ void	sorting(t_stack *a)
 	if (a->size > 3)
 		pb(a, b);
 	if (a->size > 3)
+	{
+		// printf("fuck off");
 		pb(a, b);
+		// printf("after %d ", a->size);
+	}
 	while (a->size != 3 && !is_sorted(a))
 	{
 		push_descending(a, b);
 	}
+		printf("fuck off");
 	sort_three(a);
+		printf("fucked off");
 	while (b->size)
 	{
 		push_ascending(a, b);
