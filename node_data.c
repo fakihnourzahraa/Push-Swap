@@ -6,23 +6,54 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 16:16:18 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/07 19:54:46 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// void	cost_analysis_a(t_node *a, t_node *b)
+// {
+// 	t_node	*n;
+
+// 	if (a->target_node == NULL)
+// 	{
+// 		n = create_stack();
+// 		n->index = 0;
+// 	}
+// 	else{
+		
+// 	}
+// 	while (a)
+// 	{
+// 		a->push_cost = a->index;
+// 		if (!(a->above_median))
+// 			a->push_cost = stack_size(a) - (a->index);
+// 		if (a->target_node && a->target_node->above_median)
+// 			a->push_cost += a->target_node->index;
+// 		else
+// 			a->push_cost += stack_size(b) - a->target_node->index;
+// 		a = a->next;
+// 	}
+// }
+
 void	cost_analysis_a(t_node *a, t_node *b)
 {
+	int	n;
+
 	while (a)
 	{
+		if (a->target_node == NULL)
+			n = 0;
+		else
+			n = a->target_node->index;
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = stack_size(a) - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		if (a->target_node && n)
+			a->push_cost += n;
 		else
-			a->push_cost += stack_size(b) - a->target_node->index;
+			a->push_cost += stack_size(b) - n;
 		a = a->next;
 	}
 }
@@ -73,6 +104,8 @@ void	set_target_a(t_node *a, t_node *b)
 	t_node		*target;
 	long		best;
 
+	aa = a;
+	bb = b;
 	while (aa)
 	{
 		best = LONG_MIN;
@@ -86,9 +119,7 @@ void	set_target_a(t_node *a, t_node *b)
 			bb = bb->next;
 		}
 		if (best == LONG_MIN)
-		{
 			a->target_node = find_max(b);
-		}
 		else
 			a->target_node = target;
 		aa = aa->next;

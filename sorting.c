@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 16:49:16 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/07 19:12:17 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,42 +81,43 @@ void	sort_three(t_stack *a)
 		ra(a);
 	else if (s->next == find_max(a->top))
 		rra(a);
-	if (s->val > s->next->val)
+	if (s->next != NULL && s->val > s->next->val)
 		sa(a);
 }
 //considers that a = 3
+
+void	sort_last(t_stack *s)
+{
+	t_node	*a;
+
+	a = s->top;
+	while (a)
+	{
+		if (s->top != find_min(a))
+			rra(s);
+		a = a->next;
+	}
+}
 
 void	sorting(t_stack *a)
 {
 	t_stack	*b;
 
-	b = NULL;
+	b = create_stack();
 	if (is_sorted(a))
 		return ;
 	if (a->size == 2)
-	{
-		sa(a);
-		return ;
-	}
+		return (sa(a));
 	if (a->size > 3)
 		pb(a, b);
 	if (a->size > 3)
-	{
-		// printf("fuck off");
 		pb(a, b);
-		// printf("after %d ", a->size);
-	}
-	while (a->size != 3 && !is_sorted(a))
-	{
+	while (a != NULL && a->size != 3 && !is_sorted(a))
 		push_descending(a, b);
-	}
-		printf("fuck off");
 	sort_three(a);
-		printf("fucked off");
-	while (b->size)
-	{
+	while (b && b->size)
 		push_ascending(a, b);
-	}
-	//sort_last(a);
+	sort_last(a);
 }
 //this is whats called by the main
+

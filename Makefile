@@ -7,7 +7,7 @@ SRC = ft_atoi.c ft_split.c helper_functions.c node_data.c push.c \
 OBJ     = $(SRC:.c=.o)
 
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

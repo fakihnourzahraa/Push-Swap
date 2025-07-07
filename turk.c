@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 17:38:39 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/07 20:04:18 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	move_b_to_a(t_stack *a, t_stack *b)
 
 void	prep_for_push(t_stack *a, char n, t_node *top)
 {
-	while (a->top != top)
+	while (a != NULL && a->top != NULL && a->top != top)
 	{
 		if (n == 'a')
 		{
