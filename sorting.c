@@ -99,10 +99,8 @@ void	sort_last(t_stack *s)
 	}
 }
 
-void	sorting(t_stack *a)
+void	sorting(t_stack *a, t_stack *b)
 {
-	t_stack	*b;
-
 	b = create_stack();
 	if (is_sorted(a))
 		return ;
@@ -119,5 +117,6 @@ void	sorting(t_stack *a)
 		push_ascending(a, b);
 	sort_last(a);
 }
+//if we get to here 100% theres a 
 //this is whats called by the main
 

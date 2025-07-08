@@ -96,6 +96,7 @@ void	find_index(t_stack *a)
 		i++;
 	}
 }
+//a needs to exist
 
 void	set_target_a(t_node *a, t_node *b)
 {
@@ -133,6 +134,8 @@ void	set_target_b(t_node *b, t_node *a)
 	t_node		*target;
 	long		best;
 
+	bb = b;
+	aa = a;
 	while (bb)
 	{
 		best = LONG_MAX;

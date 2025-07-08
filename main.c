@@ -16,10 +16,8 @@ t_stack	*process_input(int argc, char **argv)
 {
 	char	**input;
 	int		i;
-	t_stack	*b;
+	t_stack	*a;
 
-	if (argc < 2 || !argv[1][0])
-		return (NULL);
 	if (argc == 2)
 	{
 		input = ft_split(argv[1], ' ');
@@ -28,7 +26,7 @@ t_stack	*process_input(int argc, char **argv)
 	}
 	else
 		input = &argv[1];
-	b = convert_to_stack(input);
+	a = convert_to_stack(input);
 	// printf("%s", input[0]);
 	// printf("%s", input[1]);
 	// printf("%s", input[2]);
@@ -39,7 +37,7 @@ t_stack	*process_input(int argc, char **argv)
 			free(input[i++]);
 		free(input);
 	}
-	return (b);
+	return (a);
 }
 //to string isnt working
 //does it need to split only based on spaces or all white chars
@@ -47,11 +45,19 @@ t_stack	*process_input(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*s;
+	t_stack	*a;
+	t_stack	*b;
 
-	s = process_input(argc, argv);
-	if (!s)
+	b = NULL;
+	if (argc < 2 || !argv[1][0])
+		return (0);
+	a = process_input(argc, argv);
+	if (!a)
 		return (error_message(0));
-	sorting(s);
+	sorting(a, b);
+	free_stack(a);
+	if (b)
+		free_stack(b);
 	return (0);
 }
+

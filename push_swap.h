@@ -47,7 +47,7 @@ void		free_stack(t_stack *s);
 int			stack_size(t_node *s);
 
 //algo
-void		sorting(t_stack *a);
+void		sorting(t_stack *a, t_stack *b);
 int			is_sorted(t_stack *a);
 t_node		*find_max(t_node *s);
 t_node		*find_min(t_node *s);

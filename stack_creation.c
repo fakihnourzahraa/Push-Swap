@@ -51,7 +51,7 @@ int	pop_stack(t_stack *s)
 	int		val;
 	t_node	*r;
 
-	if (s->size == 0)
+	if (!s || s->size == 0)
 		return (0);
 	r = s->top;
 	val = r->val;
@@ -62,6 +62,7 @@ int	pop_stack(t_stack *s)
 	s->size--;
 	return (val);
 }
+//if val is 0...
 
 void	free_stack(t_stack *s)
 {

@@ -15,7 +15,8 @@
 void	refresh_info_a(t_stack *a, t_stack *b)
 {
 	find_index(a);
-	find_index(b);
+	if (b)
+		find_index(b);
 	set_target_a(a->top, b->top);
 	cost_analysis_a(a->top, b->top);
 	set_cheapest(a->top);
