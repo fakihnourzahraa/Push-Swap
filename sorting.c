@@ -104,19 +104,19 @@ void	sorting(t_stack *a, t_stack *b)
 	b = create_stack();
 	if (is_sorted(a))
 		return ;
-	if (a->size == 2)
+	if (stack_size(a) == 2)
 		return (sa(a));
-	if (a->size > 3)
+	if (stack_size(a) > 3)
 		pb(a, b);
-	if (a->size > 3)
+	if (stack_size(a) > 3)
 		pb(a, b);
-	while (a != NULL && a->size != 3 && !is_sorted(a))
+	while (a && stack_size(a) != 3 && !is_sorted(a))
 		push_descending(a, b);
 	sort_three(a);
-	while (b && b->size)
+	while (b && a && stack_size(a))
 		push_ascending(a, b);
 	sort_last(a);
 }
 //if we get to here 100% theres a 
-//this is whats called by the main
+
 

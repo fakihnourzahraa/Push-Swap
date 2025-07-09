@@ -37,7 +37,7 @@
 // 	}
 // }
 
-void	cost_analysis_a(t_node *a, t_node *b)
+void	cost_analysis_a(t_node *a, t_stack *f, t_stack *b)
 {
 	int	n;
 
@@ -49,7 +49,7 @@ void	cost_analysis_a(t_node *a, t_node *b)
 			n = a->target_node->index;
 		a->push_cost = a->index;
 		if (!(a->above_median))
-			a->push_cost = stack_size(a) - (a->index);
+			a->push_cost = stack_size(f) - (a->index);
 		if (a->target_node && n)
 			a->push_cost += n;
 		else
@@ -84,7 +84,7 @@ void	find_index(t_stack *a)
 
 	i = 0;
 	n = a->top;
-	m = stack_size(a->top) / 2;
+	m = stack_size(a) / 2;
 	while (n)
 	{
 		n->index = i;

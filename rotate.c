@@ -17,7 +17,7 @@ void	rotate(t_stack *a)
 	t_node	*first;
 	t_node	*last;
 
-	if (!a || a->size < 2)
+	if (!a || stack_size(a) < 2)
 		return ;
 	first = a->top;
 	last = a->top;

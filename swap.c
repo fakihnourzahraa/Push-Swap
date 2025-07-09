@@ -16,7 +16,7 @@ void	swap(t_stack *a)
 {
 	int	f;
 
-	if (a->size < 2)
+	if (stack_size(a) < 2)
 		return ;
 	f = a->top->val;
 	a->top->val = a->top->next->val;

@@ -35,7 +35,6 @@ typedef struct s_stack_node
 typedef struct s_stack
 {
 	t_node	*top;
-	int		size;
 }	t_stack;
 
 //stack
@@ -44,7 +43,7 @@ int			push_stack(t_stack *s, int val);
 int			pop_stack(t_stack *s);
 t_stack		*convert_to_stack(char **input);
 void		free_stack(t_stack *s);
-int			stack_size(t_node *s);
+int			stack_size(t_stack *s);
 
 //algo
 void		sorting(t_stack *a, t_stack *b);
@@ -78,7 +77,7 @@ void		ss(t_stack *a, t_stack *b);
 //sorting
 void		refresh_info_a(t_stack *a, t_stack *b);
 void		refresh_info_b(t_stack *a, t_stack *b);
-void		cost_analysis_a(t_node *a, t_node *b);
+void		cost_analysis_a(t_node *a, t_stack *s, t_stack *f);
 void		set_cheapest(t_node *a);
 void		find_index(t_stack *a);
 void		set_target_a(t_node *a, t_node *b);
