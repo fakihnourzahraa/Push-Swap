@@ -20,6 +20,7 @@ t_stack	*create_stack(void)
 	if (!stack)
 		return (NULL);
 	stack->top = NULL;
+	stack->size = 0;
 	return (stack);
 }
 
@@ -41,6 +42,7 @@ int	push_stack(t_stack *s, int val)
 	if (s->top)
 		s->top->prev = new;
 	s->top = new;
+	s->size++;
 	return (1);
 }
 
@@ -49,7 +51,7 @@ int	pop_stack(t_stack *s)
 	int		val;
 	t_node	*r;
 
-	if (!s || stack_size(s) == 0)
+	if (s->size == 0)
 		return (0);
 	r = s->top;
 	val = r->val;
@@ -57,30 +59,24 @@ int	pop_stack(t_stack *s)
 	if (s->top)
 		s->top->prev = NULL;
 	free(r);
+	s->size--;
 	return (val);
 }
-//if val is 0...
 
 void	free_stack(t_stack *s)
 {
-	if (!s)
-		return ;
-	while (stack_size(s))
+	while (s->size)
 	{
 		pop_stack(s);
 	}
 	free(s);
 }
 
-int	stack_size(t_stack *a)
+int	stack_size(t_node *s)
 {
 	int	i;
-	t_node	*s;
 
 	i = 0;
-	if (!a)
-		return (0);
-	s = a->top;
 	while (s)
 	{
 		s = s->next;

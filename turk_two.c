@@ -15,14 +15,11 @@
 void	refresh_info_a(t_stack *a, t_stack *b)
 {
 	find_index(a);
-	if (b)
-		find_index(b);
+	find_index(b);
 	set_target_a(a->top, b->top);
-	cost_analysis_a(a->top, a, b);
+	cost_analysis_a(a->top, b->top);
 	set_cheapest(a->top);
 }
-//its fine if set target a takes null
-//cost analysis a
 
 void	refresh_info_b(t_stack *a, t_stack *b)
 {

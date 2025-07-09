@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/07 19:12:17 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/09 21:33:15 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,51 +72,142 @@ t_node	*find_min(t_node *s)
 	return (min);
 }
 
-void	sort_three(t_stack *a)
-{
-	t_node	*s;
-
-	s = a->top;
-	if (s == find_max(a->top))
-		ra(a);
-	else if (s->next == find_max(a->top))
-		rra(a);
-	if (s->next != NULL && s->val > s->next->val)
-		sa(a);
-}
+// void	sort_three(t_stack *a)
+// {
+// 	if (a->top == find_max(a->top))
+// 		ra(a);
+// 	else if (a->top->next == find_max(a->top))
+// 		rra(a);
+// 	if (a->top->next != NULL && a->top->val > a->top->next->val)
+// 		sa(a);
+// }
 //considers that a = 3
 
-void	sort_last(t_stack *s)
+void sort_three(t_stack *stack)
 {
-	t_node	*a;
+	int a;
+	int b;
+	int c;
 
-	a = s->top;
-	while (a)
+	if (stack_size(stack->top) != 3)
+		return ;
+	a = stack->top->val;
+	b = stack->top->next->val;
+	c = stack->top->next->next->val;
+	printf("%d %d %d", a, b , c);
+	if (a < b && a < c && b > c)
 	{
-		if (s->top != find_min(a))
-			rra(s);
-		a = a->next;
+		rra(stack);
+		sa(stack);
+	}
+	else if (a > b && a < c && b < c)
+		sa(stack);
+	else if (a < b && a > c && b > c)
+		rra(stack);
+	else if (a > b && a > c && b < c)
+		ra(stack);
+	else if (a > b && a > c && b > c)
+	{
+		ra(stack);
+		sa(stack);
 	}
 }
 
+// void	sort_last(t_stack *a, t_stack *b)
+// {
+// 	t_node	*n;
+
+// 	n = a->top;
+// 	while (b)
+// 	{
+// 		pa(a, b);
+// 		if (a->top->val < )
+// 		{
+
+// 		}
+// 	}
+// 	while (a)
+// 	{
+// 		if (a->top != find_min(a))
+// 			rra(a);
+// 		n = n->next;
+// 	}
+// }
+// 	-> sort last 2 elements
+	// 	-> while (b) push to a and rotate as needed
+	// 	-> rotate till minimum is at top
+	
+
+// static void print_stack(t_stack *s)
+// {
+//     if (!s || !s->top)
+// 	{
+//         printf("Stack is empty\n");
+//         return;
+//     }
+
+//     t_node *current = s->top;
+//     while (current)
+// 	{
+//         printf("%d ", current->val);  // Print the value of the current node
+//         current = current->next;        // Move to the next node
+//     }
+//     printf("\n");
+// }
+
 void	sorting(t_stack *a, t_stack *b)
 {
-	b = create_stack();
 	if (is_sorted(a))
 		return ;
-	if (stack_size(a) == 2)
+	if (stack_size(a->top) == 2)
 		return (sa(a));
-	if (stack_size(a) > 3)
+	if (stack_size(a->top) == 3)
+		return (sort_three(a));
+	if (stack_size(a->top) > 3)
 		pb(a, b);
-	if (stack_size(a) > 3)
+	if (stack_size(a->top) > 3)
 		pb(a, b);
-	while (a && stack_size(a) != 3 && !is_sorted(a))
+	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
 		push_descending(a, b);
-	sort_three(a);
-	while (b && a && stack_size(a))
+	// sort_three(a);
+	while (b && b->size)
 		push_ascending(a, b);
-	sort_last(a);
+	// sort_last(a);
 }
-//if we get to here 100% theres a 
-
+// void	sorting(t_stack *a, t_stack *b)
+// {
+// 	if (is_sorted(a))
+// 		return ;
+// 	int i =0;
+// 	printf("%d \n", i);
+// 	i++;
+// 	if (stack_size(a->top) == 2)
+// 		return (sa(a));
+// 	if (stack_size(a->top) == 3)
+// 		return (sort_three(a));
+// 	printf("%d \n", i);
+// 	i++;
+// 	if (stack_size(a->top) > 3)
+// 		pb(a, b);
+// 	printf("%d \n", i);
+// 	i++;
+// 	if (stack_size(a->top) > 3)
+// 		pb(a, b);
+// 	printf("%d \n", i);
+// 	i++;
+// 	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
+// 		push_descending(a, b);
+// 	printf("%d \n", i);
+// 	i++;
+// 	// sort_three(a);
+// 	printf("%d \n", i);
+// 	i++;
+// 	while (b && b->size)
+// 		push_ascending(a, b);
+// 	printf("%d \n n", i);
+// 	i++;
+// 	//push_back(a, b);
+// 	// sort_last(a);
+// }
+//this is whats called by the main
 

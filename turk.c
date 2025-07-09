@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/07 20:04:18 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/09 20:50:56 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,13 @@ void	push_ascending(t_stack *a, t_stack *b)
 	refresh_info_b(a, b);
 	move_b_to_a(a, b);
 }
-// b and a not empty refresh info b  prep for push and pa
+//refresh info b  prep for push and pa
 
-// 	-> sort last 2 elements
-	// 	-> while (b) push to a and rotate as needed
-	// 	-> rotate till minimum is at top
+
 void	move_a_to_b(t_stack *a, t_stack *b)
 {
 	t_node	*cheap;
 
-	if (!b->top)
-	{
-		pb(a, b);
-		return ;
-	}
 	set_cheapest(a->top);
 	cheap = a->top;
 	if (cheap->above_median && cheap->target_node->above_median)
@@ -48,41 +41,29 @@ void	move_a_to_b(t_stack *a, t_stack *b)
 	prep_for_push(b, 'b', cheap->target_node);
 	pb(a, b);
 }
-//b might be empty
 
 void	move_b_to_a(t_stack *a, t_stack *b)
 {
-	t_node	*n;
-
-	if (!b->top)
-		n = NULL;
-	else
-		n = b->top->target_node;
-	prep_for_push(a, 'a', n);
+	prep_for_push(a, 'a', (b)->top->target_node);
 	pa(a, b);
 }
-//a and b not empty
 
 void	prep_for_push(t_stack *a, char n, t_node *top)
 {
-	int	v;
-
 	if (!top)
-		v = 1;
-	else
-		v = top->above_median;
+	return;
 	while (a != NULL && a->top != NULL && a->top != top)
 	{
 		if (n == 'a')
 		{
-			if (v)
+			if (top->above_median)
 				ra(a);
 			else
 				rra(a);
 		}
 		else if (n == 'b')
 		{
-			if (v)
+			if (top->above_median)
 				rb(a);
 			else
 				rrb(a);

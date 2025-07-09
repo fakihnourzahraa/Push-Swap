@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/07 19:54:46 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/09 20:36:59 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 // 	}
 // }
 
-void	cost_analysis_a(t_node *a, t_stack *f, t_stack *b)
+void	cost_analysis_a(t_node *a, t_node *b)
 {
 	int	n;
 
@@ -49,7 +49,7 @@ void	cost_analysis_a(t_node *a, t_stack *f, t_stack *b)
 			n = a->target_node->index;
 		a->push_cost = a->index;
 		if (!(a->above_median))
-			a->push_cost = stack_size(f) - (a->index);
+			a->push_cost = stack_size(a) - (a->index);
 		if (a->target_node && n)
 			a->push_cost += n;
 		else
@@ -84,7 +84,7 @@ void	find_index(t_stack *a)
 
 	i = 0;
 	n = a->top;
-	m = stack_size(a) / 2;
+	m = stack_size(a->top) / 2;
 	while (n)
 	{
 		n->index = i;
@@ -96,7 +96,6 @@ void	find_index(t_stack *a)
 		i++;
 	}
 }
-//a needs to exist
 
 void	set_target_a(t_node *a, t_node *b)
 {
@@ -134,14 +133,14 @@ void	set_target_b(t_node *b, t_node *a)
 	t_node		*target;
 	long		best;
 
-	bb = b;
 	aa = a;
+	bb = b;
 	while (bb)
 	{
 		best = LONG_MAX;
 		while (aa)
 		{
-			if (aa->val < b->val && aa->val < best)
+			if (aa->val < bb->val && aa->val < best)
 			{
 				best = aa->val;
 				target = aa;

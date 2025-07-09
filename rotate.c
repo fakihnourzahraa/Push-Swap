@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:19:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/07 18:26:52 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/09 19:39:29 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ void	rotate(t_stack *a)
 	t_node	*first;
 	t_node	*last;
 
-	if (!a || stack_size(a) < 2)
+	if (!a || a->size < 2 || !a->top)
 		return ;
 	first = a->top;
 	last = a->top;
 	while (last->next)
 		last = last->next;
 	a->top = first->next;
-	a->top->prev = NULL;
+	if (a->top)
+		a->top->prev = NULL;
 	last->next = first;
 	first->prev = last;
 	first->next = NULL;
