@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/09 21:33:15 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:34:41 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ void	sorting(t_stack *a, t_stack *b)
 	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
 		push_descending(a, b);
 	// sort_three(a);
-	while (b && b->size)
+	while (b && stack_size(b))
 		push_ascending(a, b);
 	// sort_last(a);
 }

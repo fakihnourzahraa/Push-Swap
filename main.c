@@ -6,11 +6,31 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/09 21:29:56 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:34:54 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+	t_stack *t;
+	a = process_input(argc, argv);
+	t = a;
+	while (t)
+	{
+		printf(" hi %d ", t->val);
+		t = t->next;
+	}
+	if (!a)
+		return (error_message(0));
+	b = create_stack();
+	sorting(a, b);
+	free_stack(a);
+	free_stack(b);
+	return (0);
+}
 
 t_stack	*process_input(int argc, char **argv)
 {
@@ -29,9 +49,7 @@ t_stack	*process_input(int argc, char **argv)
 	else
 		input = &argv[1];
 	b = convert_to_stack(input);
-	// printf("%s", input[0]);
-	// printf("%s", input[1]);
-	// printf("%s", input[2]);
+	printf("f %d", b->val);
 	if (argc == 2)
 	{
 		i = 0;
@@ -41,9 +59,9 @@ t_stack	*process_input(int argc, char **argv)
 	}
 	return (b);
 }
-//to string isnt working
-//does it need to split only based on spaces or all white chars
-//free input here, s so that we can use it as a parameter in sorting
+// to string isnt working
+// does it need to split only based on spaces or all white chars
+// free input here, s so that we can use it as a parameter in sorting
 
 // #include <stdio.h>
 
@@ -64,26 +82,3 @@ t_stack	*process_input(int argc, char **argv)
 //     printf("\n");
 // }
 
-
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack *t;
-
-	a = process_input(argc, argv);
-	printf("HIIIIII\n");
-	t = a;
-	while (t)
-	{
-		printf("%d ", t->val);
-		t = t->next;
-	}
-	if (!a)
-		return (error_message(0));
-	b = create_stack();
-	sorting(a, b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
-}

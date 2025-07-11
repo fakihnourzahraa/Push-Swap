@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/09 20:49:11 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:14:49 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-}						t_stack;
+}				t_stack;
 
 //stack
 t_stack		*create_stack(void);
@@ -82,5 +82,5 @@ void		push_ascending(t_stack *a, t_stack *b);
 void		move_a_to_b(t_stack *a, t_stack *b);
 void		move_b_to_a(t_stack *a, t_stack *b);
 void		prep_for_push(t_stack *a, char n, t_stack *top); //
-
+t_stack		*process_input(int argc, char **argv);
 #endif

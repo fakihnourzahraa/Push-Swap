@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/09 20:36:59 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:33:30 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 // 	}
 // }
 
-void	cost_analysis_a(t_stack *a,t_stack *b)
+void	cost_analysis_a(t_stack *a, t_stack *b)
 {
 	int	n;
 

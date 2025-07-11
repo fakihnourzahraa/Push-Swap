@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/07 19:30:30 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:38:42 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_stack	*create_stack(void)
 	stack = malloc (sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	stack = NULL;
 	return (stack);
 }
 t_stack	*find_last(t_stack *s)
@@ -33,6 +32,7 @@ t_stack	*find_last(t_stack *s)
 	}
 	return (a);
 }
+//stupid
 int	push_stack(t_stack *s, int val)
 {
 	t_stack	*new;
@@ -44,7 +44,6 @@ int	push_stack(t_stack *s, int val)
 	if (!new)
 		return (0);
 	new->val = val;
-	new->index = 0;
 	new->next = NULL;
 	new->cheapest = 0;
 	if (!s)
