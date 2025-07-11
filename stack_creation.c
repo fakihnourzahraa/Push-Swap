@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 18:38:42 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 19:12:44 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,97 +19,60 @@ t_stack	*create_stack(void)
 	stack = malloc (sizeof(t_stack));
 	if (!stack)
 		return (NULL);
+	stack->top = NULL;
+	stack->size = 0;
 	return (stack);
 }
-t_stack	*find_last(t_stack *s)
-{
-	t_stack	*a;
 
-	a = s;
-	while (a && a->next)
-	{
-		a = a->next;
-	}
-	return (a);
-}
-//stupid
 int	push_stack(t_stack *s, int val)
 {
-	t_stack	*new;
-	t_stack	*last;
+	t_node	*new;
 
-	if (!s)
-		return (0);
-	new = malloc(sizeof(t_stack));
+	new = malloc(sizeof(t_node));
 	if (!new)
 		return (0);
 	new->val = val;
-	new->next = NULL;
+	new->index = 0;
+	new->push_cost = 0;
+	new->above_median = 0;
 	new->cheapest = 0;
-	if (!s)
-	{
-		s = new;
-		new->prev = NULL;
-	}
-	else
-	{
-		last = find_last(s);
-		last->next = new;
-		new->prev = last;
-	}
+	new->target_node = NULL;
+	new->next = s->top;
+	new->prev = NULL;
+	if (s->top)
+		s->top->prev = new;
+	s->top = new;
+	s->size++;
 	return (1);
 }
-
-// int	push_stack(t_stack *s, int val)
-// {
-// 	t_node	*new;
-
-// 	if (!s)
-// 		return ;
-// 	new = malloc(sizeof(t_node));
-// 	if (!new)
-// 		return (0);
-// 	new->val = val;
-// 	new->index = 0;
-// 	new->push_cost = 0;
-// 	new->above_median = 0;
-// 	new->cheapest = 0;
-// 	new->target_node = NULL;
-// 	new->next = NULL;
-// 	new->prev = NULL;
-// 	if (s->top)
-// 		s->top->prev = new;
-// 	s->top = new;
-// 	s->size++;
-// 	return (1);
-// }
 
 int	pop_stack(t_stack *s)
 {
 	int		val;
-	t_stack	*r;
-	
-	r = s;
-	if (stack_size(s) == 0)
+	t_node	*r;
+
+	if (s->size == 0)
 		return (0);
-	val = s->val;
-	s = s->next;
-	if (s)
-		s->prev = NULL;
+	r = s->top;
+	val = r->val;
+	s->top = s->top->next;
+	if (s->top)
+		s->top->prev = NULL;
 	free(r);
+	s->size--;
 	return (val);
 }
 
 void	free_stack(t_stack *s)
 {
-	while (stack_size(s))
+	while (stack_size(s->top))
 	{
 		pop_stack(s);
 	}
 	free(s);
 }
 
-int	stack_size(t_stack *s)
+int	stack_size(t_node *s)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:19:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/09 19:39:29 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/11 19:02:07 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	rotate(t_stack *a)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_node	*first;
+	t_node	*last;
 
-	if (!a || stack_size(a) < 2 || !a)
+	if (!a || stack_size(a->top) < 2 || !a->top)
 		return ;
-	first = a;
-	last = a;
+	first = a->top;
+	last = a->top;
 	while (last->next)
 		last = last->next;
-	a = first->next;
-	if (a)
-		a->prev = NULL;
+	a->top = first->next;
+	if (a->top)
+		a->top->prev = NULL;
 	last->next = first;
 	first->prev = last;
 	first->next = NULL;
@@ -45,7 +45,7 @@ void	ra(t_stack *b)
 
 void	rr(t_stack *a, t_stack *b)
 {
-	// t_stack	*s;
+	// t_node	*s;
 
 	// s = a->top;
 	rotate(a);

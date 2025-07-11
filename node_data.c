@@ -6,17 +6,17 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 17:33:30 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/09 20:36:59 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	cost_analysis_a(t_stack *a,t_stack *b)
+// void	cost_analysis_a(t_node *a, t_node *b)
 // {
 // 	t_node	*n;
 
-// 	if (a->t_stack_node == NULL)
+// 	if (a->target_node == NULL)
 // 	{
 // 		n = create_stack();
 // 		n->index = 0;
@@ -37,7 +37,7 @@
 // 	}
 // }
 
-void	cost_analysis_a(t_stack *a, t_stack *b)
+void	cost_analysis_a(t_node *a, t_node *b)
 {
 	int	n;
 
@@ -58,10 +58,10 @@ void	cost_analysis_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	set_cheapest(t_stack *a)
+void	set_cheapest(t_node *a)
 {
 	long	val;
-	t_stack	*node;
+	t_node	*node;
 
 	val = LONG_MAX;
 	while (a)
@@ -79,12 +79,12 @@ void	set_cheapest(t_stack *a)
 void	find_index(t_stack *a)
 {
 	int		i;
-	t_stack	*n;
+	t_node	*n;
 	int		m;
 
 	i = 0;
-	n = a;
-	m = stack_size(a) / 2;
+	n = a->top;
+	m = stack_size(a->top) / 2;
 	while (n)
 	{
 		n->index = i;
@@ -97,11 +97,11 @@ void	find_index(t_stack *a)
 	}
 }
 
-void	set_target_a(t_stack *a, t_stack *b)
+void	set_target_a(t_node *a, t_node *b)
 {
-	t_stack		*aa;
-	t_stack		*bb;
-	t_stack		*target;
+	t_node		*aa;
+	t_node		*bb;
+	t_node		*target;
 	long		best;
 
 	aa = a;
@@ -126,11 +126,11 @@ void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	set_target_b(t_stack *b,t_stack *a)
+void	set_target_b(t_node *b, t_node *a)
 {
-	t_stack		*aa;
-	t_stack		*bb;
-	t_stack		*target;
+	t_node		*aa;
+	t_node		*bb;
+	t_node		*target;
 	long		best;
 
 	aa = a;

@@ -23,9 +23,9 @@
 
 void	push(t_stack **a, t_stack **b)
 {
-	if (!(*b))
+	if (!(*b)->top)
 		return ;
-	push_stack(*a, (*b)->val);
+	push_stack(*a, (*b)->top->val);
 	pop_stack(*b);
 }
 
