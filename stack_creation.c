@@ -23,28 +23,68 @@ t_stack	*create_stack(void)
 	stack->size = 0;
 	return (stack);
 }
+t_node	*find_last(t_stack *s)
+{
+	t_node	*a;
 
+	a = s->top;
+	while (a && a->next)
+	{
+		a = a->next;
+	}
+	return (a);
+}
 int	push_stack(t_stack *s, int val)
 {
 	t_node	*new;
+	t_node	*last;
 
+	if (!s)
+		return (0);
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (0);
 	new->val = val;
 	new->index = 0;
-	new->push_cost = 0;
-	new->above_median = 0;
+	new->next = NULL;
 	new->cheapest = 0;
-	new->target_node = NULL;
-	new->next = s->top;
-	new->prev = NULL;
-	if (s->top)
-		s->top->prev = new;
-	s->top = new;
-	s->size++;
+	if (!s)
+	{
+		s->top = new;
+		new->prev = NULL;
+	}
+	else
+	{
+		last = find_last(s);
+		last->next = new;
+		new->prev = last;
+	}
 	return (1);
 }
+
+// int	push_stack(t_stack *s, int val)
+// {
+// 	t_node	*new;
+
+// 	if (!s)
+// 		return ;
+// 	new = malloc(sizeof(t_node));
+// 	if (!new)
+// 		return (0);
+// 	new->val = val;
+// 	new->index = 0;
+// 	new->push_cost = 0;
+// 	new->above_median = 0;
+// 	new->cheapest = 0;
+// 	new->target_node = NULL;
+// 	new->next = NULL;
+// 	new->prev = NULL;
+// 	if (s->top)
+// 		s->top->prev = new;
+// 	s->top = new;
+// 	s->size++;
+// 	return (1);
+// }
 
 int	pop_stack(t_stack *s)
 {
