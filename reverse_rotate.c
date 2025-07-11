@@ -14,14 +14,14 @@
 
 void	reverse_rotate(t_stack *a)
 {
-	t_node	*first;
-	t_node	*last;
-	t_node	*b_last;
+	t_stack	*first;
+	t_stack	*last;
+	t_stack	*b_last;
 
-	if (!a || a->size < 2)
+	if (!a || stack_size(a) < 2)
 		return ;
-	first = a->top;
-	last = a->top;
+	first = a;
+	last = a;
 	while (last->next)
 		last = last->next;
 	b_last = last->prev;

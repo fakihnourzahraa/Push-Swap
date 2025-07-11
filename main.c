@@ -69,11 +69,11 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_node *t;
+	t_stack *t;
 
 	a = process_input(argc, argv);
 	printf("HIIIIII\n");
-	t = a->top;
+	t = a;
 	while (t)
 	{
 		printf("%d ", t->val);

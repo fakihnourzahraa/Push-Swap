@@ -19,15 +19,14 @@ t_stack	*create_stack(void)
 	stack = malloc (sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	stack->top = NULL;
-	stack->size = 0;
+	stack = NULL;
 	return (stack);
 }
-t_node	*find_last(t_stack *s)
+t_stack	*find_last(t_stack *s)
 {
-	t_node	*a;
+	t_stack	*a;
 
-	a = s->top;
+	a = s;
 	while (a && a->next)
 	{
 		a = a->next;
@@ -36,12 +35,12 @@ t_node	*find_last(t_stack *s)
 }
 int	push_stack(t_stack *s, int val)
 {
-	t_node	*new;
-	t_node	*last;
+	t_stack	*new;
+	t_stack	*last;
 
 	if (!s)
 		return (0);
-	new = malloc(sizeof(t_node));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
 	new->val = val;
@@ -50,7 +49,7 @@ int	push_stack(t_stack *s, int val)
 	new->cheapest = 0;
 	if (!s)
 	{
-		s->top = new;
+		s = new;
 		new->prev = NULL;
 	}
 	else
@@ -89,30 +88,29 @@ int	push_stack(t_stack *s, int val)
 int	pop_stack(t_stack *s)
 {
 	int		val;
-	t_node	*r;
-
-	if (s->size == 0)
+	t_stack	*r;
+	
+	r = s;
+	if (stack_size(s) == 0)
 		return (0);
-	r = s->top;
-	val = r->val;
-	s->top = s->top->next;
-	if (s->top)
-		s->top->prev = NULL;
+	val = s->val;
+	s = s->next;
+	if (s)
+		s->prev = NULL;
 	free(r);
-	s->size--;
 	return (val);
 }
 
 void	free_stack(t_stack *s)
 {
-	while (s->size)
+	while (stack_size(s))
 	{
 		pop_stack(s);
 	}
 	free(s);
 }
 
-int	stack_size(t_node *s)
+int	stack_size(t_stack *s)
 {
 	int	i;
 

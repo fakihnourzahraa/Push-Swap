@@ -14,10 +14,10 @@
 
 int	is_sorted(t_stack *a)
 {
-	t_node	*f;
-	t_node	*s;
+	t_stack	*f;
+	t_stack	*s;
 
-	f = a->top;
+	f = a;
 	while (f)
 	{
 		s = f;
@@ -32,10 +32,10 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-t_node	*find_max(t_node *s)
+t_stack	*find_max(t_stack *s)
 {
-	t_node	*a;
-	t_node	*max;
+	t_stack	*a;
+	t_stack	*max;
 	long	m;
 
 	m = LONG_MIN;
@@ -52,10 +52,10 @@ t_node	*find_max(t_node *s)
 	return (max);
 }
 
-t_node	*find_min(t_node *s)
+t_stack	*find_min(t_stack *s)
 {
-	t_node	*a;
-	t_node	*min;
+	t_stack	*a;
+	t_stack	*min;
 	long	m;
 
 	m = LONG_MAX;
@@ -74,11 +74,11 @@ t_node	*find_min(t_node *s)
 
 // void	sort_three(t_stack *a)
 // {
-// 	if (a->top == find_max(a->top))
+// 	if (a == find_max(a))
 // 		ra(a);
-// 	else if (a->top->next == find_max(a->top))
+// 	else if (a->next == find_max(a))
 // 		rra(a);
-// 	if (a->top->next != NULL && a->top->val > a->top->next->val)
+// 	if (a->next != NULL && a->val > a->next->val)
 // 		sa(a);
 // }
 //considers that a = 3
@@ -89,11 +89,11 @@ void sort_three(t_stack *stack)
 	int b;
 	int c;
 
-	if (stack_size(stack->top) != 3)
+	if (stack_size(stack) != 3)
 		return ;
-	a = stack->top->val;
-	b = stack->top->next->val;
-	c = stack->top->next->next->val;
+	a = stack->val;
+	b = stack->next->val;
+	c = stack->next->next->val;
 	printf("%d %d %d", a, b , c);
 	if (a < b && a < c && b > c)
 	{
@@ -115,20 +115,20 @@ void sort_three(t_stack *stack)
 
 // void	sort_last(t_stack *a, t_stack *b)
 // {
-// 	t_node	*n;
+// 	t_stack	*n;
 
-// 	n = a->top;
+// 	n = a;
 // 	while (b)
 // 	{
 // 		pa(a, b);
-// 		if (a->top->val < )
+// 		if (a->val < )
 // 		{
 
 // 		}
 // 	}
 // 	while (a)
 // 	{
-// 		if (a->top != find_min(a))
+// 		if (a != find_min(a))
 // 			rra(a);
 // 		n = n->next;
 // 	}
@@ -140,13 +140,13 @@ void sort_three(t_stack *stack)
 
 // static void print_stack(t_stack *s)
 // {
-//     if (!s || !s->top)
+//     if (!s || !s)
 // 	{
 //         printf("Stack is empty\n");
 //         return;
 //     }
 
-//     t_node *current = s->top;
+//     t_stack *current = s;
 //     while (current)
 // 	{
 //         printf("%d ", current->val);  // Print the value of the current node
@@ -159,15 +159,15 @@ void	sorting(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a))
 		return ;
-	if (stack_size(a->top) == 2)
+	if (stack_size(a) == 2)
 		return (sa(a));
-	if (stack_size(a->top) == 3)
+	if (stack_size(a) == 3)
 		return (sort_three(a));
-	if (stack_size(a->top) > 3)
+	if (stack_size(a) > 3)
 		pb(a, b);
-	if (stack_size(a->top) > 3)
+	if (stack_size(a) > 3)
 		pb(a, b);
-	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
+	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
 		push_descending(a, b);
 	// sort_three(a);
 	while (b && b->size)
@@ -181,21 +181,21 @@ void	sorting(t_stack *a, t_stack *b)
 // 	int i =0;
 // 	printf("%d \n", i);
 // 	i++;
-// 	if (stack_size(a->top) == 2)
+// 	if (stack_size(a) == 2)
 // 		return (sa(a));
-// 	if (stack_size(a->top) == 3)
+// 	if (stack_size(a) == 3)
 // 		return (sort_three(a));
 // 	printf("%d \n", i);
 // 	i++;
-// 	if (stack_size(a->top) > 3)
+// 	if (stack_size(a) > 3)
 // 		pb(a, b);
 // 	printf("%d \n", i);
 // 	i++;
-// 	if (stack_size(a->top) > 3)
+// 	if (stack_size(a) > 3)
 // 		pb(a, b);
 // 	printf("%d \n", i);
 // 	i++;
-// 	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
+// 	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
 // 		push_descending(a, b);
 // 	printf("%d \n", i);
 // 	i++;
