@@ -180,27 +180,27 @@ void	sorting(t_stack *a, t_stack *b)
 		return (sa(a));
 	if (stack_size(a->top) == 3)
 		return (sort_three(a));
-	printf("%d \n", i);
-	i++;
+	//printf("%d \n", i);
+	//i++;
 	if (stack_size(a->top) > 3)
 		pb(a, b);
-	printf("%d \n", i);
-	i++;
+//	printf("%d \n", i);
+	//i++;
 	if (stack_size(a->top) > 3)
 		pb(a, b);
-	printf("%d \n", i);
-	i++;
+//	printf("%d \n", i);
+//	i++;
 	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
 		push_descending(a, b);
-	printf("%d \n", i);
-	i++;
+//	printf("%d \n", i);
+//	i++;
 	sort_three(a);
-	printf("%d \n", i);
-	i++;
+//	printf("%d \n", i);
+//	i++;
 	while (b && b->size)
 		push_ascending(a, b);
-	printf("%d \n n", i);
-	i++;
+//	printf("%d \n n", i);
+//	i++;
 	// push_back(a, b);
 	// sort_last(a);
 }

@@ -82,6 +82,7 @@ int	main(int argc, char **argv)
 	if (!a)
 		return (error_message(0));
 	b = create_stack();
+	printf("%d", b->top->val);
 	sorting(a, b);
 	free_stack(a);
 	free_stack(b);
