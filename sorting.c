@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/12 19:16:25 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 19:45:02 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void sort_three(t_stack *stack)
 	b = stack->top->next->val;
 	c = stack->top->next->next->val;
 	// printf("%d %d %d", a, b , c);
+	printf("sort three\n");
 	if (a < b && a < c && b > c)
 	{
 		rra(stack);
@@ -135,6 +136,7 @@ void	sort_last(t_stack *a)
 	t_node	*n;
 
 	n = a->top;
+	printf("sort last\n");
 	while (n) // a shouldnt be empty at the end
 	{
 		if (n->val != find_min(n)->val)
@@ -178,7 +180,6 @@ print_stack(a);
 	{
 		return (sort_three(a));
 	}
-		
 	// printf("%d \n", i);
 	// i++;
 	if (stack_size(a) > 3)

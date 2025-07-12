@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/12 19:04:09 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 19:29:25 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,6 @@ int	push_stack(t_stack *s, int val)
 	// new->cheapest = 0;
 	// new->target_node = NULL;
 	new->next = NULL;
-	// if(!s)
-	// {
-	// 	s->top = new;
-	// 	new->prev = NULL;
-	// }
-	// else
-	// {
-	// 	last = find_last(s);
-	// 	last->next = new;
-	// 	new->prev = last;
-	// }
 	if(s->top)
 	{
 		last = find_last(s);
@@ -73,7 +62,7 @@ int	push_stack(t_stack *s, int val)
 	}
 	else
 	{
-			s->top = new;
+		s->top = new;
 		new->prev = NULL;
 	}
 	return (1);
@@ -85,7 +74,7 @@ int	pop_stack(t_stack *s)
 	int		val;
 	t_node	*r;
 
-	if (s->size == 0)
+	if (!stack_size(s))
 		return (0);
 	r = s->top;
 	val = r->val;
@@ -99,6 +88,8 @@ int	pop_stack(t_stack *s)
 
 void	free_stack(t_stack *s)
 {
+	if (!s)
+		return ;
 	while (stack_size(s))
 	{
 		pop_stack(s);
