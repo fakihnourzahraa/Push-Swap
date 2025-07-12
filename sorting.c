@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 19:16:42 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 18:23:03 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,27 +113,19 @@ void sort_three(t_stack *stack)
 	}
 }
 
-// void	sort_last(t_stack *a, t_stack *b)
-// {
-// 	t_node	*n;
+void	sort_last(t_stack *a)
+{
+	t_node	*n;
 
-// 	n = a->top;
-// 	while (b)
-// 	{
-// 		pa(a, b);
-// 		if (a->top->val < )
-// 		{
-
-// 		}
-// 	}
-// 	while (a)
-// 	{
-// 		if (a->top != find_min(a))
-// 			rra(a);
-// 		n = n->next;
-// 	}
-// }
-// 	-> sort last 2 elements
+	n = a->top;
+	while (n) // a shouldnt be empty at the end
+	{
+		if (n != find_min(n))
+			rra(a);
+		n = n->next;
+	}
+}
+	// -> sort last 2 elements
 	// 	-> while (b) push to a and rotate as needed
 	// 	-> rotate till minimum is at top
 	
@@ -174,35 +166,35 @@ void sort_three(t_stack *stack)
 
 void	sorting(t_stack *a, t_stack *b)
 {
+	// int	i = 0;
+
 	if (is_sorted(a))
 		return ;
 	if (stack_size(a->top) == 2)
 		return (sa(a));
 	if (stack_size(a->top) == 3)
 		return (sort_three(a));
-	printf("%d \n", i);
-	i++;
+	// printf("%d \n", i);
+	// i++;
 	if (stack_size(a->top) > 3)
 		pb(a, b);
-	printf("%d \n", i);
-	i++;
+	// printf("%d \n", i);
+	// i++;
 	if (stack_size(a->top) > 3)
 		pb(a, b);
-	printf("%d \n", i);
-	i++;
+	// printf("%d \n", i);
+	// i++;
 	while (a != NULL && stack_size(a->top) != 3 && !is_sorted(a))
 		push_descending(a, b);
-	printf("%d \n", i);
-	i++;
+	// printf("%d \n", i);
+	// i++;
 	sort_three(a);
-	printf("%d \n", i);
-	i++;
+	// printf("%d \n", i);
+	// i++;
 	while (b && b->size)
 		push_ascending(a, b);
-	printf("%d \n n", i);
-	i++;
+	// printf("%d \n n", i);
+	// i++;
 	// push_back(a, b);
-	// sort_last(a);
+	sort_last(a);
 }
-
-
