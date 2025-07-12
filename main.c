@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 19:04:36 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 18:58:22 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,22 @@ t_stack	*process_input(int argc, char **argv)
 
 // #include <stdio.h>
 
-// void print_stack(t_stack *s)
-// {
-//     if (!s || !s->top)
-// 	{
-//         printf("Stack is empty\n");
-//         return;
-//     }
+void print_stack(t_stack *s)
+{
+    if (!s || !s->top)
+	{
+        printf("Stack is empty\n");
+        return;
+    }
 
-//     t_node *current = s->top;
-//     while (current)
-// 	{
-//         printf("%d ", current->val);  // Print the value of the current node
-//         current = current->next;        // Move to the next node
-//     }
-//     printf("\n");
-// }
+    t_node *current = s->top;
+    while (current)
+	{
+        printf("%d ", current->val);  // Print the value of the current node
+        current = current->next;        // Move to the next node
+    }
+    printf("\n");
+}
 
 
 int	main(int argc, char **argv)
@@ -72,18 +72,20 @@ int	main(int argc, char **argv)
 	// t_node *t;
 
 	a = process_input(argc, argv);
-	// printf("HIIIIII\n");
-	// t = a->top;
+
+	if (!a)
+		return (error_message(0));
+	b = create_stack();
+	// 	t = a->top;
 	// while (t)
 	// {
 	// 	printf("%d ", t->val);
 	// 	t = t->next;
 	// }
-	if (!a)
-		return (error_message(0));
-	b = create_stack();
 	sorting(a, b);
-	free_stack(a);
-	free_stack(b);
+	print_stack(a);
+	print_stack(b);
+	// free_stack(a);
+	// free_stack(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 19:12:44 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 19:04:09 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,62 @@ t_stack	*create_stack(void)
 	stack->size = 0;
 	return (stack);
 }
+t_node	*find_last(t_stack *s)
+{
+	t_node	*a;
 
+	if (!s)
+		return NULL;
+	a = s->top;
+	while (a && a->next)
+	{
+		a = a->next;
+	}
+	return (a);
+}
 int	push_stack(t_stack *s, int val)
 {
 	t_node	*new;
+	t_node	*last;
 
+	if (!s)
+		return (0);
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (0);
 	new->val = val;
-	new->index = 0;
-	new->push_cost = 0;
-	new->above_median = 0;
-	new->cheapest = 0;
-	new->target_node = NULL;
-	new->next = s->top;
-	new->prev = NULL;
-	if (s->top)
-		s->top->prev = new;
-	s->top = new;
-	s->size++;
+	// new->index = 0;
+	// new->push_cost = 0;
+	// new->above_median = 0;
+	// new->cheapest = 0;
+	// new->target_node = NULL;
+	new->next = NULL;
+	// if(!s)
+	// {
+	// 	s->top = new;
+	// 	new->prev = NULL;
+	// }
+	// else
+	// {
+	// 	last = find_last(s);
+	// 	last->next = new;
+	// 	new->prev = last;
+	// }
+	if(s->top)
+	{
+		last = find_last(s);
+		last->next = new;
+		new->prev = last;
+
+	}
+	else
+	{
+			s->top = new;
+		new->prev = NULL;
+	}
 	return (1);
 }
+
 
 int	pop_stack(t_stack *s)
 {
@@ -65,18 +99,20 @@ int	pop_stack(t_stack *s)
 
 void	free_stack(t_stack *s)
 {
-	while (stack_size(s->top))
+	while (stack_size(s))
 	{
 		pop_stack(s);
 	}
 	free(s);
 }
 
-int	stack_size(t_node *s)
+int	stack_size(t_stack *a)
 {
 	int	i;
+	t_node	*s;
 
 	i = 0;
+	s = a->top;
 	while (s)
 	{
 		s = s->next;

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:47:29 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/11 19:01:57 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/12 19:03:43 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reverse_rotate(t_stack *a)
 	t_node	*last;
 	t_node	*b_last;
 
-	if (!a || stack_size(a->top) < 2)
+	if (!a || stack_size(a) < 2)
 		return ;
 	first = a->top;
 	last = a->top;
