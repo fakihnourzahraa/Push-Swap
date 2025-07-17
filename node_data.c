@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/12 19:02:47 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/17 17:44:35 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	set_target_b(t_node *b, t_node *a)
 		if (best == LONG_MAX)
 			b->target_node = find_min(a);
 		else
-			bb->target_node = target;
+			b->target_node = target;
 		bb = bb->next;
 	}
 }
