@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 12:59:34 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 16:52:51 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/17 16:48:14 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static int	findbase(char *nptr)
 
 int	ft_atoi(char *nptr)
 {
-	long		ans;
-	int			s;
+	long long		ans;
+	long long			s;
 	int			pow;
 	char		*n;
 
@@ -62,5 +62,7 @@ int	ft_atoi(char *nptr)
 		pow = pow / 10;
 		n++;
 	}
-	return ((ans * s));
+	if ((ans * s) > INT_MAX || (ans * s) < INT_MIN)
+		exit(1);
+	return (ans * s);
 }

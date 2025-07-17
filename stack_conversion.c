@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:36 by nfakih            #+#    #+#             */
-/*   Updated: 2025/06/29 19:39:11 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/17 16:44:32 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,11 @@ t_stack	*convert_to_stack(char **input)
 		i++;
 	}
 	if (!check_dup(arr, i))
-	{
-		free(arr);
-		return (NULL);
-	}
+		return (free(arr), NULL);
 	s = fill_stack(arr, i);
-	free(arr);
 	if (!s)
-		return (NULL);
-	return (s);
+		return (free(arr), NULL);
+	return (free(arr), s);
 }
 //this is whats being called by the main
 //it converts the input to an int array, checks for errors
