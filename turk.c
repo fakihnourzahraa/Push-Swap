@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/17 16:37:35 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/18 17:30:32 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void	prep_for_push(t_stack *a, char n, t_node *top)
 		}
 	}
 }
+//add top && to..
 //Parameter for stack name, combine them both here

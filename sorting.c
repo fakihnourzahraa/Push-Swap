@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/17 16:44:00 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/18 19:41:50 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_sorted(t_stack *a)
 			return (0);
 		f = f->next;
 	}
-	printf("is sorted");
+	 printf("is sorted");
 	return (1);
 }
 
@@ -110,17 +110,34 @@ void sort_three(t_stack *stack)
 }
 
 
+// void	sort_last(t_stack *a)
+// {
+// 	t_node	*n;
+
+// 	n = a->top;
+// 	//printf("sort last\n");
+// 	while (n) // a shouldnt be empty at the end
+// 	{
+// 		if (n->val != find_min(n)->val)
+// 			rra(a);
+// 		n = n->next;
+// 	}
+// 		// print_stack(a);
+// }
+
 void	sort_last(t_stack *a)
 {
 	t_node	*n;
 
 	n = a->top;
-	//printf("sort last\n");
-	while (n) // a shouldnt be empty at the end
+	find_index(a);
+
+	while (n->val != find_min(n)->val) // a shouldnt be empty at the end
 	{
-		if (n->val != find_min(n)->val)
+		if (find_min(n)->above_median)
+			ra(a);
+		else
 			rra(a);
-		n = n->next;
 	}
 		// print_stack(a);
 }
@@ -148,24 +165,20 @@ void	sort_last(t_stack *a)
 void	sorting(t_stack *a, t_stack *b)
 {
 	// int	i = 0;
-//print_stack(a);
+	//print_stack(a);
 	if (is_sorted(a))
 		return ;
 	if (stack_size(a) == 2)
-	{
 		return (sa(a));
-	}
 	if (stack_size(a) == 3)
-	{
 		return (sort_three(a));
-	}
 	// printf("%d \n", i);
 	// i++;
 	if (stack_size(a) > 3)
 		pb(a, b);
 	// printf("%d \n", i);
 	// i++;
-	if (stack_size(a) > 3)
+	if (stack_size(a) > 3 && !(is_sorted(a)))
 		pb(a, b);
 	// printf("%d \n", i);
 	// i++;

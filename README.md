@@ -23,10 +23,9 @@ Main
 		-> while (b) push to a and rotate as needed
 		-> rotate till minimum is at top
 to do:
-	->fix arr length
-	->null inputs
-	->check dup fix
-	->make sure atoi handles int overflow or add to error checking(an extra function ig)
+	fix sorting logic please
+	->int max int min
+	->string
 
 ## 🔷 Write pseudo code
 
