@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/18 20:24:48 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/23 18:23:15 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,21 +89,21 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_node *t;
+	// t_node *t;
 
 	a = process_input(argc, argv);
 	if (!a)
 		return (error_message(0));
 	b = create_stack();
-		t = a->top;
-	while (t)
-	{
-		printf("%d ", t->val);
-		t = t->next;
-	}
+		// t = a->top;
+	// while (t)
+	// {
+	// 	printf("%d ", t->val);
+	// 	t = t->next;
+	// }
 	sorting(a, b);
-	print_stack(a);
-	print_stack(b);
+	// print_stack(a);
+	// print_stack(b);
 	 free_stack(a);
 	 free_stack(b);
 	return (0);
