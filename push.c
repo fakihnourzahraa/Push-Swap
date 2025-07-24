@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/09 20:44:03 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 17:13:21 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	pa(t_stack *a, t_stack *b)
 
 void	pb(t_stack *a, t_stack *b)
 {
-	// printf("push before: %d", b->size);
 	push(&b, &a);
-		// printf("push after: %d", b->size);
 	write(1, "pb\n", 3);
 }

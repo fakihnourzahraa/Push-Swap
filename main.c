@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/23 18:23:15 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 19:39:29 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ t_stack	*process_input(int argc, char **argv)
 	else
 		input = &argv[1];
 	b = convert_to_stack(input);
-	// printf("%s", input[0]);
-	// printf("%s", input[1]);
-	// printf("%s", input[2]);
 	if (argc == 2)
 	{
 		i = 0;
@@ -89,22 +86,39 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	// t_node *t;
 
 	a = process_input(argc, argv);
 	if (!a)
 		return (error_message(0));
 	b = create_stack();
-		// t = a->top;
-	// while (t)
-	// {
-	// 	printf("%d ", t->val);
-	// 	t = t->next;
-	// }
-	sorting(a, b);
+	// sorting(a, b);
+	pb(a, b);
+	pb(a, b);
+	set_target_a(a->top, b->top);
+	set_target_b(b->top, a->top);
+	printf("stack a: ");
 	// print_stack(a);
+	t_node *t;
+	t = a->top;
+	while(t)
+	{
+		if(!t->target_node)
+			return (0);
+		printf("%d ", t->target_node->val);
+		t = t->next;
+	}
+	printf("\nstack b: ");
+		t = b->top;
+
+	while(t)
+	{
+		if(!t->target_node)
+			return (0);
+		printf("%d ", t->target_node->val);
+		t = t->next;
+	}
 	// print_stack(b);
-	 free_stack(a);
-	 free_stack(b);
+	// free_stack(a);
+	// free_stack(b);
 	return (0);
 }

@@ -26,6 +26,7 @@ to do:
 	fix sorting logic please
 	->int max int min
 	->string
+	->check for large input
 
 ## 🔷 Write pseudo code
 

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:47:29 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/12 19:03:43 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 15:46:31 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	reverse_rotate(t_stack *a)
 	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
+	a->top = last;
 }
 
 void	rrb(t_stack *b)
