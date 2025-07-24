@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/24 19:44:04 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 20:48:51 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	cost_analysis_a(t_stack *aa, t_stack *bb)
 		// if (a->target_node == NULL)
 		// 	n = 0;
 		// else
-		n = a->target_node->index;
+			n = a->target_node->index;
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = stack_size(aa) - (a->index);
@@ -140,63 +140,99 @@ void	find_index(t_stack *a)
 	}
 }
 
-void	set_target_a(t_node **a, t_node **b)
+void	set_target_a(t_node *aa, t_node *bb)
 {
-	t_node		*aa;
-	t_node		*bb;
+	t_node		*a;
+	t_node		*b;
+	t_node		*cur;
 	t_node		*target;
 	long		best;
 
-	aa = (*a);
-	bb = *b;
-	while (aa)
+	a = aa;
+	b = bb;
+	while (a)
 	{
 		best = LONG_MIN;
-		while (bb)
+		cur = b;
+		while (cur)
 		{
-			if (bb->val < (*a)->val && bb->val < best)
+			if (cur->val < a->val && cur->val > best)
 			{
-				best = bb->val;
-				target = bb;
+				best = cur->val;
+				target = cur;
 			}
-			bb = bb->next;
+			cur = cur->next;
 		}
 		if (best == LONG_MIN)
-			(*a)->target_node = find_max(b);
+			a->target_node = find_max(b);
 		else
-			(*a)->target_node = target;
-		aa = aa->next;
+			a->target_node = target;
+		a = a->next;
 	}
-		// printf("SETTING TARGET best: %d", b->target_node->val);
+	// printf("SETTING TARGET best: %d", b->target_node->val);
 }
 
-void	set_target_b(t_node *b, t_node *a)
+
+void	set_target_b(t_node *aa, t_node *bb)
 {
-	t_node		*aa;
-	t_node		*bb;
+	t_node		*a;
+	t_node		*b;
+	t_node		*cur;
 	t_node		*target;
 	long		best;
 
-	aa = a;
-	bb = b;
-	while (bb)
+	a = aa;
+	b = bb;
+	while (b)
 	{
 		best = LONG_MAX;
-		while (aa)
+		cur = a;
+		target = NULL;
+		while (cur)
 		{
-			if (aa->val < bb->val && aa->val < best)
+			if (cur->val > b->val && cur->val < best)
 			{
-				best = aa->val;
-				target = aa;
+				best = cur->val;
+				target = cur;
 			}
-			aa = aa->next;
+			cur = cur->next;
 		}
 		if (best == LONG_MAX)
 			b->target_node = find_min(a);
 		else
 			b->target_node = target;
-		bb = bb->next;
+		b = b->next;
 	}
+	// printf("SETTING TARGET best: %d", b->target_node->val);
 }
+
+// void	set_target_b(t_node *b, t_node *a)
+// {
+// 	t_node		*aa;
+// 	t_node		*bb;
+// 	t_node		*target;
+// 	long		best;
+
+// 	aa = a;
+// 	bb = b;
+// 	while (bb)
+// 	{
+// 		best = LONG_MAX;
+// 		while (aa)
+// 		{
+// 			if (aa->val < bb->val && aa->val < best)
+// 			{
+// 				best = aa->val;
+// 				target = aa;
+// 			}
+// 			aa = aa->next;
+// 		}
+// 		if (best == LONG_MAX)
+// 			bb->target_node = find_min(a);
+// 		else
+// 			bb->target_node = target;
+// 		bb = bb->next;
+// 	}
+// }
 // Long so it takes int min
 //make sure set targets are right

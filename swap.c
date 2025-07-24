@@ -6,21 +6,43 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:17:43 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/05 16:54:08 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 21:05:37 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack *a)
-{
-	int	f;
+// void	swap(t_stack *a)
+// {
+// 	int	f;
 
-	if (a->size < 2)
+// 	if (a->size < 2)
+// 		return ;
+// 	f = a->top->val;
+// 	a->top->val = a->top->next->val;
+// 	a->top->next->val = f;
+// }
+
+void	swap(t_stack *s)
+{
+	t_node	*first;
+	t_node	*second;
+
+	if (!s || s->size < 2)
 		return ;
-	f = a->top->val;
-	a->top->val = a->top->next->val;
-	a->top->next->val = f;
+
+	first = s->top;
+	second = first->next;
+
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+
+	s->top = second;
 }
 
 void	sa(t_stack *a)

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/24 17:16:41 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 20:56:13 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_descending(t_stack *a, t_stack *b)
 
 void	push_ascending(t_stack *a, t_stack *b)
 {
-	printf("push ascending\n");
+	// printf("push ascending\n");
 	refresh_info_b(a, b);
 	move_b_to_a(a, b);
 }
@@ -39,7 +39,7 @@ void	move_a_to_b(t_stack *a, t_stack *b)
 		rr(a, b);
 	else if (!(cheap->above_median) && !(cheap->target_node->above_median))
 		rrr(a, b);
-	prep_for_push(a, 'a', cheap->target_node);
+	prep_for_push(a, 'a', cheap);
 	prep_for_push(b, 'b', cheap->target_node);
 	pb(a, b);
 }
@@ -58,14 +58,14 @@ void	prep_for_push(t_stack *a, char n, t_node *top)
 	{
 		if (n == 'a')
 		{
-			if (find_min(top)->above_median)
+			if (find_min(a->top)->above_median)
 				ra(a);
 			else
 				rra(a);
 		}
 		else if (n == 'b')
 		{
-			if (find_min(top)->above_median)
+			if (find_min(a->top)->above_median)
 				rb(a);
 			else
 				rrb(a);

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/24 17:14:08 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/24 20:40:09 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,30 @@ void	sort_last(t_stack *a)
 	// 	-> while (b) push to a and rotate as needed
 	// 	-> rotate till minimum is at top
 
+// void	sorting(t_stack *a, t_stack *b)
+// {
+// 	if (is_sorted(a))
+// 		return ;
+// 	if (stack_size(a) == 2)
+// 		return (sa(a));
+// 	if (stack_size(a) == 3)
+// 		return (sort_three(a));
+// 	if (stack_size(a) > 3)
+// 		pb(a, b);
+// 	if (stack_size(a) > 3 && !(is_sorted(a)))
+// 		pb(a, b);
+// 	while (a != NULL && stack_size(a) != 3)
+// 		push_descending(a, b);
+// 	sort_three(a);
+// 	 print_stack(b);
+// 	while (b && stack_size(b))
+// 		push_ascending(a, b);
+// 	sort_last(a);
+// }
+
 void	sorting(t_stack *a, t_stack *b)
 {
+	print_stack(a);
 	if (is_sorted(a))
 		return ;
 	if (stack_size(a) == 2)
@@ -154,46 +176,10 @@ void	sorting(t_stack *a, t_stack *b)
 		pb(a, b);
 	if (stack_size(a) > 3 && !(is_sorted(a)))
 		pb(a, b);
-	while (a != NULL && stack_size(a) != 3)
+	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
 		push_descending(a, b);
 	sort_three(a);
-	 print_stack(b);
 	while (b && stack_size(b))
 		push_ascending(a, b);
 	sort_last(a);
 }
-
-// void	sorting(t_stack *a, t_stack *b)
-// {
-// 	int	i = 0;
-// 	print_stack(a);
-// 	if (is_sorted(a))
-// 		return ;
-// 	if (stack_size(a) == 2)
-// 		return (sa(a));
-// 	if (stack_size(a) == 3)
-// 		return (sort_three(a));
-// 	 printf("index: %d \n", i++);
-// 	if (stack_size(a) > 3)
-// 		pb(a, b);
-// 	printf("index: %d \n", i++);
-// 	if (stack_size(a) > 3 && !(is_sorted(a)))
-// 		pb(a, b);
-// 	printf("index: %d \n", i++);
-// 	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
-// 		push_descending(a, b);
-// 	printf("index: %d \n", i++);
-// 	print_stack(a);
-// 	print_stack(b);
-// 	sort_three(a);
-// 	printf("after");
-// 	print_stack(a);
-// 	print_stack(b);
-// 	printf("index: %d \n", i++);
-// 	while (b && stack_size(b))
-// 		push_ascending(a, b);
-// 	// print_stack(a);
-// 	// print_stack(b);
-// 	printf("index: %d \n", i++);
-// 	sort_last(a);
-// }
