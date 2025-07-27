@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:32:23 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:45:26 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,23 @@
 // 	pop_stack(*b);
 // }
 
-void push(t_stack *src, t_stack *dest)
+void	push(t_stack *src, t_stack *dest)
 {
-    t_node *node_to_move;
+	t_node *node_to_move;
 
-    if (!src || !dest || !src->top)
-        return ;
-
-    // Get the top node from source stack
-    node_to_move = src->top;
-
-    // Remove from source stack
-    src->top = node_to_move->next;
-    if (src->top)
-        src->top->prev = NULL;
-
-    // Add to destination stack
-    node_to_move->next = dest->top;
-    node_to_move->prev = NULL;
-    
-    if (dest->top)
-        dest->top->prev = node_to_move;
-    
-    dest->top = node_to_move;
-
-    // Update sizes
-    src->size--;
-    dest->size++;
+	if (!src || !dest || !src->top)
+		return ;
+	node_to_move = src->top;
+	src->top = node_to_move->next;
+	if (src->top)
+		src->top->prev = NULL;
+	node_to_move->next = dest->top;
+	node_to_move->prev = NULL;
+	if (dest->top)
+		dest->top->prev = node_to_move;
+	dest->top = node_to_move;
+	src->size--;
+	dest->size++;
 }
 //claude fix
 

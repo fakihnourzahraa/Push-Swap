@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:23:28 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:44:54 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 // 		n->index = 0;
 // 	}
 // 	else{
-		
 // 	}
 // 	while (a)
 // 	{
@@ -59,7 +58,6 @@
 // 		a = a->next;
 // 	}
 // }
-
 // void	cost_analysis_a(t_stack *aa, t_stack *bb)
 // {
 // 	int	n;
@@ -98,6 +96,7 @@ void	cost_analysis_a(t_stack *aa, t_stack *bb)
 		a = a->next;
 	}
 }
+
 void	set_cheapest(t_node *a)
 {
 	long	cost;
@@ -166,7 +165,6 @@ void	set_target_a(t_node *aa, t_node *bb)
 			a->target_node = target;
 		a = a->next;
 	}
-	// printf("SETTING TARGET best: %d", b->target_node->val);
 }
 
 
@@ -200,7 +198,6 @@ void	set_target_b(t_node *aa, t_node *bb)
 			b->target_node = target;
 		b = b->next;
 	}
-	// printf("SETTING TARGET best: %d", b->target_node->val);
 }
 
 // void	set_target_b(t_node *b, t_node *a)

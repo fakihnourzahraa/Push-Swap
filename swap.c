@@ -6,22 +6,11 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:17:43 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:25:47 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:46:34 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	swap(t_stack *a)
-// {
-// 	int	f;
-
-// 	if (a->size < 2)
-// 		return ;
-// 	f = a->top->val;
-// 	a->top->val = a->top->next->val;
-// 	a->top->next->val = f;
-// }
 
 void	swap(t_stack *s)
 {
@@ -38,7 +27,6 @@ void	swap(t_stack *s)
 	second->prev = NULL;
 	second->next = first;
 	first->prev = second;
-
 	s->top = second;
 }
 
@@ -78,5 +66,3 @@ void	ss(t_stack *a, t_stack *b)
 	swap(b);
 	write(1, "ss\n", 3);
 }
-
-

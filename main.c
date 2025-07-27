@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:31:19 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:43:22 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,22 @@ t_stack	*process_input(int argc, char **argv)
 }
 //to string isnt working
 
-void print_stack(t_stack *s)
+void	print_stack(t_stack *s)
 {
-    if (!s || !s->top)
-    {
-        printf("Stack is empty\n");
-        return;
-    }
+	t_node	*current;
 
-    t_node *current = s->top;
-    while (current)
-    {
-        printf("%d ", current->val);
-        current = current->next;
-    }
-    printf("\n");
+	if (!s || !s->top)
+	{
+		printf("Stack is empty\n");
+		return ;
+	}
+	current = s->top;
+	while (current)
+	{
+		printf("%d ", current->val);
+		current = current->next;
+	}
+	printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -67,8 +68,6 @@ int	main(int argc, char **argv)
 		return (error_message(0));
 	b = create_stack();
 	sorting(a, b);
-	// print_stack(a);
-	// print_stack(b);
 	free_stack(a);
 	free_stack(b);
 	return (0);
