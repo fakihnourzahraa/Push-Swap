@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/24 20:40:09 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:34:13 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_sorted(t_stack *a)
 			return (0);
 		f = f->next;
 	}
-	printf("is sorted");
+	// printf("is sorted");
 	return (1);
 }
 
@@ -67,60 +67,46 @@ t_node	*find_min(t_node *s)
 	return (min);
 }
 
-// void	sort_three(t_stack *a)
-// {
-// 	if (a->top == find_max(a->top))
-// 		ra(a);
-// 	else if (a->top->next == find_max(a->top))
-// 		rra(a);
-// 	if (a->top->next != NULL && a->top->val > a->top->next->val)
-// 		sa(a);
-// }
+void	sort_three(t_stack *a)
+{
+	if (a->top == find_max(a->top))
+		ra(a);
+	else if (a->top->next == find_max(a->top))
+		rra(a);
+	if (a->top->next != NULL && a->top->val > a->top->next->val)
+		sa(a);
+}
 //considers that a = 3
 
-void sort_three(t_stack *stack)
-{
-	int a;
-	int b;
-	int c;
-
-	if (stack_size(stack) != 3)
-		return ;
-	a = stack->top->val;
-	b = stack->top->next->val;
-	c = stack->top->next->next->val;
-	if (a < b && a < c && b > c)
-	{
-		rra(stack);
-		sa(stack);
-	}
-	else if (a > b && a < c && b < c)
-		sa(stack);
-	else if (a < b && a > c && b > c)
-		rra(stack);
-	else if (a > b && a > c && b < c)
-		ra(stack);
-	else if (a > b && a > c && b > c)
-	{
-		ra(stack);
-		sa(stack);
-	}
-}
-
-
-// void	sort_last(t_stack *a)
+// void sort_three(t_stack *stack)
 // {
-// 	t_node	*n;
-// 	n = a->top;
-// 	//printf("sort last\n");
-// 	while (n) // a shouldnt be empty at the end
+// 	int a;
+// 	int b;
+// 	int c;
+
+// 	if (stack_size(stack) != 3)
+// 		return ;
+// 	a = stack->top->val;
+// 	b = stack->top->next->val;
+// 	c = stack->top->next->next->val;
+// 	if (a < b && a < c && b > c)
 // 	{
-// 		if (n->val != find_min(n)->val)
-// 			rra(a);
-// 		n = n->next;
+// 		rra(stack);
+// 		sa(stack);
 // 	}
-// 		// print_stack(a);
+// 	else if (a > b && a < c && b < c)
+// 		sa(stack);
+// 	else if (a < b && a > c && b > c)
+// 		rra(stack);
+// 	else if (a > b && a > c && b < c)
+// 		ra(stack);
+// 	else if (a > b && a > c && b > c)
+// 	{
+// 		ra(stack);
+// 		sa(stack);
+// 	}
 // }
+
 
 void	sort_last(t_stack *a)
 {
@@ -138,9 +124,6 @@ void	sort_last(t_stack *a)
 	}
 // print_stack(a);
 }
-	// -> sort last 2 elements
-	// 	-> while (b) push to a and rotate as needed
-	// 	-> rotate till minimum is at top
 
 // void	sorting(t_stack *a, t_stack *b)
 // {
@@ -165,7 +148,6 @@ void	sort_last(t_stack *a)
 
 void	sorting(t_stack *a, t_stack *b)
 {
-	print_stack(a);
 	if (is_sorted(a))
 		return ;
 	if (stack_size(a) == 2)

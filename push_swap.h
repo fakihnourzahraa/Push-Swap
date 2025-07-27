@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/24 21:04:16 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/27 18:31:48 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <limits.h>
-
-
 
 typedef struct s_stack_node
 {
@@ -92,5 +90,7 @@ void		move_b_to_a(t_stack *a, t_stack *b);
 void		prep_for_push(t_stack *a, char n, t_node *top);
 
 void print_stack(t_stack *s);
+
+void swap(t_stack *s);
 
 #endif
