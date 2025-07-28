@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:19:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/24 16:19:18 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:41:41 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ void	ra(t_stack *b)
 
 void	rr(t_stack *a, t_stack *b)
 {
-	// t_node	*s;
-
-	// s = a->top;
 	rotate(a);
 	rotate(b);
 	write(1, "rr\n", 3);

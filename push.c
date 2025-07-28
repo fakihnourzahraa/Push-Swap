@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:45:26 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:41:54 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 void	push(t_stack *src, t_stack *dest)
 {
-	t_node *node_to_move;
+	t_node	*node_to_move;
 
 	if (!src || !dest || !src->top)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:47:28 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:40:30 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ t_stack	*create_stack(void)
 	stack->size = 0;
 	return (stack);
 }
+
 t_node	*find_last(t_stack *s)
 {
 	t_node	*a;
 
 	if (!s)
-		return NULL;
+		return (NULL);
 	a = s->top;
 	while (a && a->next)
 	{
@@ -36,6 +37,7 @@ t_node	*find_last(t_stack *s)
 	}
 	return (a);
 }
+
 int	push_stack(t_stack *s, int val)
 {
 	t_node	*new;
@@ -53,12 +55,11 @@ int	push_stack(t_stack *s, int val)
 	new->cheapest = 0;
 	new->target_node = NULL;
 	new->next = NULL;
-	if(s->top)
+	if (s->top)
 	{
 		last = find_last(s);
 		last->next = new;
 		new->prev = last;
-
 	}
 	else
 	{

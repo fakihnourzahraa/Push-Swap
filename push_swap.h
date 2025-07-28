@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/27 18:31:48 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:42:11 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void		move_a_to_b(t_stack *a, t_stack *b);
 void		move_b_to_a(t_stack *a, t_stack *b);
 void		prep_for_push(t_stack *a, char n, t_node *top);
 
-void print_stack(t_stack *s);
-
-void swap(t_stack *s);
+void		print_stack(t_stack *s);
 
 #endif

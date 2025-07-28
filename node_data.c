@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:44:54 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:42:29 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,6 @@ void	set_target_a(t_node *aa, t_node *bb)
 		a = a->next;
 	}
 }
-
 
 void	set_target_b(t_node *aa, t_node *bb)
 {
