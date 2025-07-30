@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/28 18:42:29 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:37:03 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,14 @@ void	cost_analysis_a(t_stack *aa, t_stack *bb)
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = stack_size(aa) - (a->index);
-		if (a->target_node && n)
+		if (a->target_node->above_median)
 			a->push_cost += n;
 		else
 			a->push_cost += stack_size(bb) - n;
 		a = a->next;
 	}
 }
+//fxed a.targetnode.above median condition
 
 void	set_cheapest(t_node *a)
 {
@@ -127,10 +128,10 @@ void	find_index(t_stack *a)
 	while (n)
 	{
 		n->index = i;
-		if (i <= m)
-			n->above_median = 0;
-		else if (i > m)
+		if (i < m)
 			n->above_median = 1;
+		else if (i >= m)
+			n->above_median = 0;
 		n = n->next;
 		i++;
 	}
