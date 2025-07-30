@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/28 18:41:54 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:48:56 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	push(t_stack *src, t_stack *dest)
 	if (dest->top)
 		dest->top->prev = node_to_move;
 	dest->top = node_to_move;
-	src->size--;
-	dest->size++;
 }
 //claude fix
 

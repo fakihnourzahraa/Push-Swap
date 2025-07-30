@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 13:46:38 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/27 18:46:15 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:59:49 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	move_a_to_b(t_stack *a, t_stack *b)
 
 	set_cheapest(a->top);
 	cheap = a->top;
+	while (!cheap->cheapest)
+	{
+		cheap = cheap->next;
+	}
 	if (cheap->above_median && cheap->target_node->above_median)
 		rr(a, b);
 	else if (!(cheap->above_median) && !(cheap->target_node->above_median))
@@ -40,6 +44,7 @@ void	move_a_to_b(t_stack *a, t_stack *b)
 	prep_for_push(b, 'b', cheap->target_node);
 	pb(a, b);
 }
+//fixed the cheap loop (was non existent)
 //there might be an issue in if else if check
 
 void	move_b_to_a(t_stack *a, t_stack *b)

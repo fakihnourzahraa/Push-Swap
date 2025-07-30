@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/28 18:42:11 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:49:37 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_stack_node
 typedef struct s_stack
 {
 	t_node	*top;
-	int		size;
 }	t_stack;
 
 //stack

@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/28 18:40:30 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/07/30 17:49:06 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_stack	*create_stack(void)
 	if (!stack)
 		return (NULL);
 	stack->top = NULL;
-	stack->size = 0;
 	return (stack);
 }
 
@@ -82,7 +81,6 @@ int	pop_stack(t_stack *s)
 	if (s->top)
 		s->top->prev = NULL;
 	free(r);
-	s->size--;
 	return (val);
 }
 
