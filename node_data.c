@@ -6,77 +6,12 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:16:40 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/30 17:37:03 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/05 19:34:32 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	cost_analysis_a(t_node *a, t_node *b)
-// {
-// 	t_node	*n;
-
-// 	if (a->target_node == NULL)
-// 	{
-// 		n = create_stack();
-// 		n->index = 0;
-// 	}
-// 	else{
-// 	}
-// 	while (a)
-// 	{
-// 		a->push_cost = a->index;
-// 		if (!(a->above_median))
-// 			a->push_cost = stack_size(a) - (a->index);
-// 		if (a->target_node && a->target_node->above_median)
-// 			a->push_cost += a->target_node->index;
-// 		else
-// 			a->push_cost += stack_size(b) - a->target_node->index;
-// 		a = a->next;
-// 	}
-// }
-
-// void	cost_analysis_a(t_stack *aa, t_stack *bb)
-// {
-// 	int	n;
-// 	t_node	*a;
-
-// 	a = aa->top;
-// 	while (a)
-// 	{
-// 		if (a->target_node == NULL)
-// 			n = -1;
-// 		else
-// 			n = a->target_node->index;
-// 		a->push_cost = a->index;
-// 		if (!(a->above_median))
-// 			a->push_cost = stack_size(aa) - (a->index);
-// 		if (n != -1 && a->target_node->above_median)
-// 			a->push_cost += n;
-// 		else
-// 			a->push_cost += stack_size(bb);
-// 		a = a->next;
-// 	}
-// }
-// void	cost_analysis_a(t_stack *aa, t_stack *bb)
-// {
-// 	int	n;
-// 	t_node	*a;
-
-// 	a = aa->top;
-// 	while (a)
-// 	{
-// 		n = a->target_node->index;
-// 		a->push_cost = a->index;
-// 		if (!(a->above_median))
-// 			a->push_cost = stack_size(aa) - (a->index);
-// 		if (n != -1 && a->target_node->above_median)
-// 			a->push_cost += n;
-// 		else
-// 			a->push_cost += stack_size(bb);
-// 		a = a->next;
-// 	}
-// }
 void	cost_analysis_a(t_stack *aa, t_stack *bb)
 {
 	int		n;

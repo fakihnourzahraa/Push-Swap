@@ -28,7 +28,11 @@ to do:
 	->string
 	->check for large input
 	->
-
+errors:
+	->  % ./push_swap "8619 4 4058 3 2384 2 -3495 1 8763 5" | wc -l  
+		13
+	->  % ./push_swap "190 4 -5445 3 282 5 -8094 2  -9703 1" | wc -l
+	14
 ## 🔷 Write pseudo code
 
 //Declare pointers to two data structures/linked lists, one for stack `a` and another for `b`
