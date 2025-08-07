@@ -35,6 +35,9 @@ errors:
 	14
 ## 🔷 Write pseudo code
 
+
+cc ft_atoi.c ft_split.c helper_functions.c node_data.c push.c reverse_rotate.c rotate.c sorting.c stack_conversion.c stack_creation.c swap.c turk_two.c turk.c main.c 
+
 //Declare pointers to two data structures/linked lists, one for stack `a` and another for `b`
 	//Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
 
