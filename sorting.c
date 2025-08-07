@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/28 19:29:12 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/07 21:59:02 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,70 +25,25 @@ int	is_sorted(t_stack *a)
 	}
 	return (1);
 }
-
-void	sort_three(t_stack *a)
+int get_bit(int number, int bit_position)
 {
-	if (a->top == find_max(a->top))
-		ra(a);
-	else if (a->top->next == find_max(a->top))
-		rra(a);
-	if (a->top->next != NULL && a->top->val > a->top->next->val)
-		sa(a);
+    return (number >> bit_position) & 1;
 }
-//considers that a = 3
-
-void	sort_last(t_stack *a)
+void	sorting(t_stack	*a, t_stack	*b)
 {
-	t_node	*n;
-
-	n = a->top;
-	find_index(a);
-	while (n->val != find_min(n)->val)
+	int size;
+	int	i;
+	
+	size = stack_size(a);
+	i = 0;
+	while (i < size)
 	{
-		if (find_min(n)->above_median)
-			ra(a);
+		if (get_bit(a->top->val, current) == 0)
+		{
+			pb(a, b);
+		}
 		else
-			rra(a);
+			ra(a, b);
+		i++;
 	}
-}
-
-// void	sorting(t_stack *a, t_stack *b)
-// {
-// 	if (is_sorted(a))
-// 		return ;
-// 	if (stack_size(a) == 2)
-// 		return (sa(a));
-// 	if (stack_size(a) == 3)
-// 		return (sort_three(a));
-// 	if (stack_size(a) > 3)
-// 		pb(a, b);
-// 	if (stack_size(a) > 3 && !(is_sorted(a)))
-// 		pb(a, b);
-// 	while (a != NULL && stack_size(a) != 3)
-// 		push_descending(a, b);
-// 	sort_three(a);
-// 	 print_stack(b);
-// 	while (b && stack_size(b))
-// 		push_ascending(a, b);
-// 	sort_last(a);
-// }
-
-void	sorting(t_stack *a, t_stack *b)
-{
-	if (is_sorted(a))
-		return ;
-	if (stack_size(a) == 2)
-		return (sa(a));
-	if (stack_size(a) == 3)
-		return (sort_three(a));
-	if (stack_size(a) > 3)
-		pb(a, b);
-	if (stack_size(a) > 3 && !(is_sorted(a)))
-		pb(a, b);
-	while (a != NULL && stack_size(a) != 3 && !is_sorted(a))
-		push_descending(a, b);
-	sort_three(a);
-	while (b && stack_size(b))
-		push_ascending(a, b);
-	sort_last(a);
 }
