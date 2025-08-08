@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/08 20:00:22 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 22:03:59 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 }	t_stack;
 
 //stack
-int	stack_size(t_stack *a);
+int			stack_size(t_stack *a);
 t_stack		*create_stack(void);
 int			push_stack(t_stack *s, int val);
 int			pop_stack(t_stack *s);
@@ -57,7 +57,8 @@ int			ft_strlen(char *str);
 long		ft_atoi(char *nptr);
 int			arr_len(char **input);
 int			error_message(int r);
-t_node	*find_last(t_stack *s);
+t_node		*find_last(t_stack *s);
+
 //operations
 void		pa(t_stack *a, t_stack *b);
 void		pb(t_stack *a, t_stack *b);
@@ -71,24 +72,14 @@ void		sa(t_stack *a);
 void		sb(t_stack *b);
 void		ss(t_stack *a, t_stack *b);
 
-//sorting
-void		refresh_info_a(t_stack *a, t_stack *b);
-void		refresh_info_b(t_stack *a, t_stack *b);
-void		cost_analysis_a(t_stack *a, t_stack *b);
-void		set_cheapest(t_node *a);
-void		find_index(t_stack *a);
-void		set_target_a(t_node *a, t_node *b);
-void		set_target_b(t_node *b, t_node *a);
-void		push_descending(t_stack *a, t_stack *b);
-void		push_ascending(t_stack *a, t_stack *b);
-void		move_a_to_b(t_stack *a, t_stack *b);
-void		move_b_to_a(t_stack *a, t_stack *b);
-void		prep_for_push(t_stack *a, char n, t_node *top);
-
-
-
-t_node	*find_max(t_node *s);
-t_node	*find_min(t_node *s);
+t_node		*find_max(t_node *s);
+t_node		*find_min(t_node *s);
 void		print_stack(t_stack *s);
+
+int			ft_find_min(t_stack *a);
+t_node		*find_max(t_node *s);
+t_node		*find_min(t_node *s);
+void		refresh_index(t_stack *a);
+void		sort_three(t_stack *a);
 
 #endif

@@ -1,51 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*   stack_helper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 22:14:17 by nfakih           ###   ########.fr       */
+/*   Created: 2025/08/08 21:56:37 by nfakih            #+#    #+#             */
+/*   Updated: 2025/08/08 21:58:01 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	iswhite(char nptr)
+int	is_sorted(t_stack *a)
 {
-	if ((nptr >= 9 && nptr <= 13) || nptr == 32)
-		return (1);
-	return (0);
-}
+	t_node	*f;
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
+	f = a->top;
+	while (f && f->next)
 	{
-		return (1);
+		if (f->val > f->next->val)
+			return (0);
+		f = f->next;
 	}
-	return (0);
+	return (1);
 }
 
-int	ft_strlen(char *str)
+t_node	*find_last(t_stack *s)
 {
-	int	a;
+	t_node	*a;
 
-	a = 0;
-	while (str[a] != '\0')
+	if (!s)
+		return (NULL);
+	a = s->top;
+	while (a && a->next)
 	{
-		a++;
+		a = a->next;
 	}
 	return (a);
-}
-
-int	arr_len(char **input)
-{
-	int	i;
-
-	i = 0;
-	while (input[i])
-		i++;
-	return (i);
 }

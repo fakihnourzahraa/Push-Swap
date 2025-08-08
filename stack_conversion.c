@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:36 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 20:01:25 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 21:43:54 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,7 @@ t_stack	*convert_to_stack(char **input)
 		l = ft_atoi(input[i]);
 		if (l == 2147483648)
 			return (free(arr), NULL);
-		arr[i] = l;
-		i++;
+		arr[i++] = l;
 	}
 	if (!check_dup(arr, i))
 		return (free(arr), NULL);

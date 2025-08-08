@@ -6,11 +6,12 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 19:52:30 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/30 17:49:06 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 21:57:37 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	stack_size(t_stack *a)
 {
 	int		i;
@@ -35,20 +36,6 @@ t_stack	*create_stack(void)
 		return (NULL);
 	stack->top = NULL;
 	return (stack);
-}
-
-t_node	*find_last(t_stack *s)
-{
-	t_node	*a;
-
-	if (!s)
-		return (NULL);
-	a = s->top;
-	while (a && a->next)
-	{
-		a = a->next;
-	}
-	return (a);
 }
 
 int	push_stack(t_stack *s, int val)

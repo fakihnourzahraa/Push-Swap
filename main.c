@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 19:27:11 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 22:17:20 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_stack	*process_input(int argc, char **argv)
 	}
 	return (b);
 }
-//to string isnt working
 
 void	print_stack(t_stack *s)
 {
@@ -63,12 +62,13 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	if (argc == 1 || argv[1][0] == '\0')
+		return (0);
 	a = process_input(argc, argv);
 	if (!a)
-		return (error_message(0));
+		return (write(2, "Error\n", 6), exit(1), 1);
 	b = create_stack();
 	sorting(a, b);
-	//print_stack(a);
 	free_stack(a);
 	free_stack(b);
 	return (0);
