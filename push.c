@@ -12,23 +12,6 @@
 
 #include "push_swap.h"
 
-// void	push(t_stack **a, t_stack **b)
-// {
-// 	if ((*b)->top)
-// 		return ;
-// 	push_stack(*a, (*b)->top->val);
-// 	(*b)->size--;
-// 	(*b)->top->val = 0;
-// }
-
-// void	push(t_stack **a, t_stack **b)
-// {
-// 	if (!(*b)->top)
-// 		return ;
-// 	push_stack(*a, (*b)->top->val);
-// 	pop_stack(*b);
-// }
-
 void	push(t_stack *src, t_stack *dest)
 {
 	t_node	*node_to_move;

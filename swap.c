@@ -30,24 +30,6 @@ void	swap(t_stack *s)
 	s->top = second;
 }
 
-// void swap(t_stack *s)
-// {
-//     t_node *first;
-//     t_node *second;
-
-// 	if (!s || stack_size(s) < 2)
-// 		return ;
-//     first = s->top;
-//     second = first->next;
-//     s->top = second;
-//     second->prev = NULL;
-//     first->next = second->next;
-//     if (first->next)
-//         first->next->prev = first;
-//     second->next = first;
-//     first->prev = second;
-// }
-
 void	sa(t_stack *a)
 {
 	swap(a);

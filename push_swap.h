@@ -24,10 +24,6 @@ typedef struct s_stack_node
 {
 	int					val;
 	int					index;
-	int					push_cost;
-	int					above_median;
-	int					cheapest;
-	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }						t_node;
@@ -38,6 +34,7 @@ typedef struct s_stack
 }	t_stack;
 
 //stack
+int	stack_size(t_stack *a);
 t_stack		*create_stack(void);
 int			push_stack(t_stack *s, int val);
 int			pop_stack(t_stack *s);
@@ -60,7 +57,7 @@ int			ft_strlen(char *str);
 int			ft_atoi(char *nptr);
 int			arr_len(char **input);
 int			error_message(int r);
-
+t_node	*find_last(t_stack *s);
 //operations
 void		pa(t_stack *a, t_stack *b);
 void		pb(t_stack *a, t_stack *b);
@@ -88,6 +85,10 @@ void		move_a_to_b(t_stack *a, t_stack *b);
 void		move_b_to_a(t_stack *a, t_stack *b);
 void		prep_for_push(t_stack *a, char n, t_node *top);
 
+
+
+t_node	*find_max(t_node *s);
+t_node	*find_min(t_node *s);
 void		print_stack(t_stack *s);
 
 #endif

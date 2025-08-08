@@ -67,6 +67,7 @@ int	main(int argc, char **argv)
 	if (!a)
 		return (error_message(0));
 	b = create_stack();
+	sorting(a, b);
 	print_stack(a);
 	free_stack(a);
 	free_stack(b);
