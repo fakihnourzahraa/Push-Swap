@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/07 21:59:02 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 19:48:08 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,26 +149,59 @@ void	sort_three(t_stack *a)
 	if (a->top->next != NULL && a->top->val > a->top->next->val)
 		sa(a);
 }
-void	sort_four(t_stack *a, t_stack *b)
+
+int	ft_find_min(t_stack *a)
 {
-	while (a->top != find_min(a->top))
+	t_node	*current;
+	int		min;
+	int		i;
+	int		min_i;
+
+	current = a->top;
+	min = current->val;
+	i = 0;
+	min_i = 0;
+	while (current)
 	{
-		// if (find_min(a->top) == find_last(a))
-		// 	rra(a);
-		// else
-			ra(a);
+		if (current->val < min)
+		{
+			min = current->val;
+			min_i = i;
+		}
+		i++;
+		current = current->next;
 	}
-	pb(a, b);
-	sort_three(a);
-	pa(a, b);
+	return (min_i);
 }
+
+void	sort_four(t_stack *stack_a, t_stack *stack_b)
+{
+	int	min_i;
+
+	if (stack_size(stack_a) != 4)
+		return ;
+	min_i = ft_find_min(stack_a);
+	if (min_i == 1)
+		sa(stack_a);
+	else if (min_i == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (min_i == 3)
+		rra(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_b, stack_a);
+}
+
 void	sort_five(t_stack *a, t_stack *b)
 {
 		while (a->top != find_min(a->top))
 	{
-		// if (find_min(a->top) == find_last(a))
-		// 	rra(a);
-		// else
+		if (find_min(a->top) == find_last(a))
+			rra(a);
+		else
 			ra(a);
 	}
 	pb(a, b);
@@ -178,8 +211,8 @@ void	sort_five(t_stack *a, t_stack *b)
 int	base_cases(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a))
-		return 1;
-	if (stack_size (a) == 2)
+		return (1);
+	else if (stack_size(a) == 2)
 		sa(a);
 	else if (stack_size(a) == 3)
 		sort_three(a);
@@ -188,8 +221,8 @@ int	base_cases(t_stack *a, t_stack *b)
 	else if (stack_size(a) == 5)
 		sort_five(a, b);
 	else
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 void sorting(t_stack *a, t_stack *b)
 {

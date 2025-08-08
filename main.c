@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/07 21:53:25 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 19:27:11 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 		return (error_message(0));
 	b = create_stack();
 	sorting(a, b);
-	print_stack(a);
+	//print_stack(a);
 	free_stack(a);
 	free_stack(b);
 	return (0);
