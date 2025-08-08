@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:00:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/05 19:43:52 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 20:00:22 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			iswhite(char nptr);
 int			ft_isdigit(int c);
 char		**ft_split(char *str, char c);
 int			ft_strlen(char *str);
-int			ft_atoi(char *nptr);
+long		ft_atoi(char *nptr);
 int			arr_len(char **input);
 int			error_message(int r);
 t_node	*find_last(t_stack *s);

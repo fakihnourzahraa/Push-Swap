@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 19:48:08 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/08 19:54:43 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_sorted(t_stack *a)
 	t_node	*f;
 
 	f = a->top;
-	while (f->next)
+	while (f && f->next)
 	{
 		if (f->val > f->next->val)
 			return (0);
