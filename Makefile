@@ -13,18 +13,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $@ $^
-	@echo "done making"
+	@echo "🏂 done making"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
-	@echo "done cleaning"
+	@echo "💄 done cleaning"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "done fcleaning"
+	@echo "👺 done fcleaning"
 
 re: fclean all
 
