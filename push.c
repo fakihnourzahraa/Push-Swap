@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:36:14 by nfakih            #+#    #+#             */
-/*   Updated: 2025/07/30 17:48:56 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:28:08 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 void	push(t_stack *src, t_stack *dest)
 {
-	t_node	*node_to_move;
+	t_node	*temp;
 
 	if (!src || !dest || !src->top)
 		return ;
-	node_to_move = src->top;
-	src->top = node_to_move->next;
+	temp = src->top;
+	src->top = temp->next;
 	if (src->top)
 		src->top->prev = NULL;
-	node_to_move->next = dest->top;
-	node_to_move->prev = NULL;
+	temp->next = dest->top;
+	temp->prev = NULL;
 	if (dest->top)
-		dest->top->prev = node_to_move;
-	dest->top = node_to_move;
+		dest->top->prev = temp;
+	dest->top = temp;
 }
-//claude fix
 
 void	pa(t_stack *a, t_stack *b)
 {
