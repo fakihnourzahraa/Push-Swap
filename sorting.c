@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:19:27 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 21:57:16 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:59:57 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	radix_sort(t_stack *a, t_stack *b, int max)
 		i = 0;
 		while (i < size)
 		{
-			if (((a->top->index >> bit) & 1) == 0)
+			if (!((a->top->index >> bit) & 1))
 				pb(a, b);
 			else
 				ra(a);
@@ -36,26 +36,6 @@ void	radix_sort(t_stack *a, t_stack *b, int max)
 		bit++;
 	}
 }
-
-// void	sort_four(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	min_i;
-
-// 	min_i = ft_find_min(stack_a);
-// 	if (min_i == 1)
-// 		sa(stack_a);
-// 	else if (min_i == 2)
-// 	{
-// 		ra(stack_a);
-// 		ra(stack_a);
-// 	}
-// 	else if (min_i == 3)
-// 		rra(stack_a);
-// 	pb(stack_a, stack_b);
-// 	sort_three(stack_a);
-// 	pa(stack_b, stack_a);
-// }
-//check
 
 void	sort_four(t_stack *a, t_stack *b)
 {

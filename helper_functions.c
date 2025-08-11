@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:27:10 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 22:14:17 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:04:56 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,16 @@ int	arr_len(char **input)
 	while (input[i])
 		i++;
 	return (i);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

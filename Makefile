@@ -2,9 +2,7 @@ NAME    = push_swap
 
 SRC = ft_atoi.c ft_split.c helper_functions.c push.c \
 		reverse_rotate.c rotate.c sorting.c stack_conversion.c \
-		stack_creation.c swap.c main.c algo.c stack_helper.c \
-		ft_strcmp.c
-
+		stack_creation.c swap.c main.c algo.c stack_helper.c 
 OBJ     = $(SRC:.c=.o)
 
 CC      = cc

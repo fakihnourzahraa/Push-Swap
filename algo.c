@@ -6,35 +6,11 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 21:54:13 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 21:58:15 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:53:35 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_find_min(t_stack *a)
-{
-	t_node	*current;
-	int		min;
-	int		i;
-	int		min_i;
-
-	current = a->top;
-	min = current->val;
-	i = 0;
-	min_i = 0;
-	while (current)
-	{
-		if (current->val < min)
-		{
-			min = current->val;
-			min_i = i;
-		}
-		i++;
-		current = current->next;
-	}
-	return (min_i);
-}
 
 t_node	*find_max(t_node *s)
 {
@@ -76,58 +52,29 @@ t_node	*find_min(t_node *s)
 	return (min);
 }
 
-// void	refresh_index(t_stack *a)
-// {
-// 	t_node	*n;
-// 	int		min;
-// 	int		i;
-// 	t_node	*second_min;
-
-// 	i = 0;
-// 	min = find_min(a->top)->val;
-// 	find_min(a->top)->index = i;
-// 	i++;
-// 	while (i < stack_size(a))
-// 	{
-// 		n = a->top;
-// 		second_min = n;
-// 		while (n)
-// 		{
-// 			if (n->index == -1 && n->val < second_min->val && n->val > min)
-// 				second_min = n;
-// 			n = n->next;
-// 		}
-// 		second_min->index = i;
-// 		i++;
-// 		min = second_min->val;
-
-// 	}
-// }
-
 void	refresh_index(t_stack *a)
 {
-	t_node	*current;
+	t_node	*cur;
 	int		index;
-	t_node	*compare;
+	t_node	*temp;
 
-	current = a->top;
-	while (current)
+	cur = a->top;
+	while (cur)
 	{
 		index = 0;
-		compare = a->top;
-		while (compare)
+		temp = a->top;
+		while (temp)
 		{
-			if (compare->val < current->val)
+			if (temp->val < cur->val)
 			{
 				index++;
 			}
-			compare = compare->next;
+			temp = temp->next;
 		}
-		current->index = index;
-		current = current->next;
+		cur->index = index;
+		cur = cur->next;
 	}
 }
-//claude fix
 
 void	sort_three(t_stack *a)
 {
