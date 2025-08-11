@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/08 22:17:20 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:43:14 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ t_stack	*process_input(int argc, char **argv)
 	int		i;
 	t_stack	*b;
 
-	if (argc < 2 || !argv[1][0])
+	if (argv[1][0] == '\0' || !ft_strcmp(argv[1], "-")
+		|| !ft_strcmp(argv[1], "+"))
 		return (NULL);
 	if (argc == 2)
 	{
@@ -62,7 +63,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (argc == 1 || argv[1][0] == '\0')
+	if (argc == 1)
 		return (0);
 	a = process_input(argc, argv);
 	if (!a)
