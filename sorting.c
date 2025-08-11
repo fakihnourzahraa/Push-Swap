@@ -37,25 +37,40 @@ void	radix_sort(t_stack *a, t_stack *b, int max)
 	}
 }
 
-void	sort_four(t_stack *stack_a, t_stack *stack_b)
-{
-	int	min_i;
+// void	sort_four(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	int	min_i;
 
-	if (stack_size(stack_a) != 4)
-		return ;
-	min_i = ft_find_min(stack_a);
-	if (min_i == 1)
-		sa(stack_a);
-	else if (min_i == 2)
+// 	min_i = ft_find_min(stack_a);
+// 	if (min_i == 1)
+// 		sa(stack_a);
+// 	else if (min_i == 2)
+// 	{
+// 		ra(stack_a);
+// 		ra(stack_a);
+// 	}
+// 	else if (min_i == 3)
+// 		rra(stack_a);
+// 	pb(stack_a, stack_b);
+// 	sort_three(stack_a);
+// 	pa(stack_b, stack_a);
+// }
+//check
+
+void	sort_four(t_stack *a, t_stack *b)
+{
+	if (a->top->next == find_min(a->top))
+		sa(a);
+	else if (a->top->next->next == find_min(a->top))
 	{
-		ra(stack_a);
-		ra(stack_a);
+		ra(a);
+		ra(a);
 	}
-	else if (min_i == 3)
-		rra(stack_a);
-	pb(stack_a, stack_b);
-	sort_three(stack_a);
-	pa(stack_b, stack_a);
+	else if (find_min(a->top) == find_last(a))
+		rra(a);
+	pb(a, b);
+	sort_three(a);
+	pa(a, b);
 }
 
 void	sort_five(t_stack *a, t_stack *b)

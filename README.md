@@ -10,7 +10,6 @@ Main
 	Check if sorted
 		if (!sorted) -> sort
 to do:
-	fix sorting logic please
 	->int max int min
 	->string
 	->check for large input
