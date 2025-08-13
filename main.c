@@ -6,7 +6,7 @@
 /*   By: nfakih <nfakih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:35:54 by nfakih            #+#    #+#             */
-/*   Updated: 2025/08/11 16:43:14 by nfakih           ###   ########.fr       */
+/*   Updated: 2025/08/13 20:43:10 by nfakih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,6 @@ t_stack	*process_input(int argc, char **argv)
 		free(input);
 	}
 	return (b);
-}
-
-void	print_stack(t_stack *s)
-{
-	t_node	*current;
-
-	if (!s || !s->top)
-	{
-		printf("Stack is empty\n");
-		return ;
-	}
-	current = s->top;
-	while (current)
-	{
-		printf("%d ", current->val);
-		current = current->next;
-	}
-	printf("\n");
 }
 
 int	main(int argc, char **argv)
